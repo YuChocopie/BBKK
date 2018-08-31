@@ -16,6 +16,9 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:name=".NameActivity" />
+    <activity android:name=".TendencyActivity" />
+    <activity android:name=".SeasonActivity"></activity>
   </application>
 
 </manifest>
