@@ -53,7 +53,7 @@
     app:srcCompat="@android:color/darker_gray"/>
 
   <ImageButton
-    android:id="@+id/btn_name_start_bbkk"
+    android:id="@+id/btn_name_start"
     android:layout_width="150dp"
     android:layout_height="60dp"
     android:layout_marginBottom="8dp"
@@ -74,10 +74,10 @@
     android:layout_marginStart="8dp"
     android:gravity="center_horizontal"
     android:lineSpacingExtra="6sp"
+    android:text="@string/name_next_btn_message"
     android:textSize="13sp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:text="@string/name_next_btn_message"/>
+    app:layout_constraintStart_toStartOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
