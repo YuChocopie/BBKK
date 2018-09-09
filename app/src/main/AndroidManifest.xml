@@ -9,16 +9,16 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".NameActivity">
+    <activity android:name=".view.nameSetting.NameActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".MainActivity" />
-    <activity android:name=".TendencyActivity" />
-    <activity android:name=".SeasonActivity"></activity>
+    <activity android:name=".view.main.MainActivity" />
+    <activity android:name=".view.tendency.TendencyActivity" />
+    <activity android:name=".view.season.SeasonActivity"></activity>
   </application>
 
 </manifest>

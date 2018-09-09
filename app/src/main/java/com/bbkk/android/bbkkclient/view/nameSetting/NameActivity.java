@@ -1,13 +1,12 @@
-package com.bbkk.android.bbkkclient;
+package com.bbkk.android.bbkkclient.view.nameSetting;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-import static android.Manifest.permission_group.CALENDAR;
+import com.bbkk.android.bbkkclient.R;
+import com.bbkk.android.bbkkclient.view.tendency.TendencyActivity;
 
 public class NameActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.bbkk.android.bbkkclient;
+package com.bbkk.android.bbkkclient.view.season;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bbkk.android.bbkkclient.R;
 
 public class SummerFragment extends android.support.v4.app.Fragment {
   @Override
@@ -19,10 +21,10 @@ public class SummerFragment extends android.support.v4.app.Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.item_season_viewpager, container, false);
-    LinearLayout background = (LinearLayout) linearLayout.findViewById(R.id.fragment_page);
-    TextView page_num = (TextView) linearLayout.findViewById(R.id.season_page_num);
+    LinearLayout background = linearLayout.findViewById(R.id.fragment_page);
+    TextView page_num = linearLayout.findViewById(R.id.season_page_num);
     page_num.setText("Summer");
-    background.setBackground(new ColorDrawable(R.color.gray2));
+    background.setBackground(new ColorDrawable(R.color.summer));
     return linearLayout;
   }
 }

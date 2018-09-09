@@ -1,4 +1,4 @@
-package com.bbkk.android.bbkkclient;
+package com.bbkk.android.bbkkclient.view.season;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.bbkk.android.bbkkclient.R;
+import com.bbkk.android.bbkkclient.view.main.MainActivity;
 
 public class SeasonActivity extends AppCompatActivity {
 

@@ -10,6 +10,12 @@
   <color name="colorPrimary">#3F51B5</color>
   <color name="colorPrimaryDark">#303F9F</color>
 
+  <color name="fall">#a2876d</color>
+  <color name="spring">#e687c5</color>
+  <color name="summer">#87ca13</color>
+  <color name="winter">#0d184b</color>
+
+
   <color name="gray1">#e8e8e8</color>
   <color name="gray2">#868686</color>
   <color name="gray3">#dadada</color>
