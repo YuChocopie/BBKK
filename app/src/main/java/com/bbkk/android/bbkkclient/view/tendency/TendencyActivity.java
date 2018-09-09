@@ -1,4 +1,4 @@
-package com.bbkk.android.bbkkclient;
+package com.bbkk.android.bbkkclient.view.tendency;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import com.bbkk.android.bbkkclient.R;
+import com.bbkk.android.bbkkclient.ViewFlipperAction;
+import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
 
 import java.util.ArrayList;
 import java.util.List;
