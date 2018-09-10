@@ -19,13 +19,8 @@ public class MainActivity extends AppCompatActivity {
     TextView activityName = findViewById(R.id.textView_global_header);
     activityName.setText(MAIN_TITLE);
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_start_write);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-          .setAction("Action", null).show();
-      }
-    });
+    FloatingActionButton fab = findViewById(R.id.btn_start_write);
+    fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+      .setAction("Action", null).show());
   }
 }
