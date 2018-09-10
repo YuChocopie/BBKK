@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="240dp">
+
+  <TextView
+    android:id="@+id/textView_timeline_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="24dp"
+    android:textColor="#707070"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="한강 유원지" />
+
+  <TextView
+    android:id="@+id/textView_timeline_name_detail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:lineSpacingExtra="6sp"
+    android:textColor="#707070"
+    android:textSize="13sp"
+    app:layout_constraintBottom_toBottomOf="@+id/textView_timeline_name"
+    app:layout_constraintStart_toEndOf="@+id/textView_timeline_name"
+    tools:text="한여름 꿀처럼 시원한 곳" />
+
+  <TextView
+    android:id="@+id/textView_timeline_address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="12dp"
+    android:lineSpacingExtra="6sp"
+    android:textColor="#707070"
+    android:textSize="13sp"
+    app:layout_constraintStart_toEndOf="@+id/btn_timeline_address"
+    app:layout_constraintTop_toBottomOf="@+id/textView_timeline_name"
+    tools:text="서울 영등포구 여의동로 330 한강사업본부"/>
+
+  <ImageButton
+    android:id="@+id/btn_timeline_favorite"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@color/white3"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.864"
+    app:layout_constraintStart_toEndOf="@+id/textView_timeline_name_detail"
+    app:layout_constraintTop_toTopOf="@+id/textView_timeline_name_detail"
+    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+  <ImageButton
+    android:id="@+id/btn_timeline_address"
+    android:layout_width="40dp"
+    android:layout_height="32dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginTop="4dp"
+    android:background="@color/white3"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView_timeline_name"
+    app:srcCompat="@android:drawable/ic_menu_mapmode"
+    tools:text="131" />
+
+  <TextView
+    android:id="@+id/textView_timeline_huoney"
+    android:layout_width="60dp"
+    android:layout_height="22dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="40dp"
+    android:background="@color/gray3"
+    android:gravity="right"
+    android:lineSpacingExtra="6sp"
+    android:textColor="#000000"
+    android:textSize="12sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:text="131   " />
+</android.support.constraint.ConstraintLayout>
