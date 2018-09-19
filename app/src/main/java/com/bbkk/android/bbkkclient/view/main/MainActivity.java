@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.Timeline;
-import com.bbkk.android.bbkkclient.presenter.main.TimeLineAdapter;
+import com.bbkk.android.bbkkclient.presenter.TimeLineAdapter;
 
 import java.util.ArrayList;
 

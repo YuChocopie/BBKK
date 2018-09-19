@@ -1,4 +1,4 @@
-package com.bbkk.android.bbkkclient.presenter.main;
+package com.bbkk.android.bbkkclient.presenter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
