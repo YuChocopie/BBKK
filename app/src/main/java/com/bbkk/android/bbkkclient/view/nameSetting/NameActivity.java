@@ -3,6 +3,8 @@ package com.bbkk.android.bbkkclient.view.nameSetting;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,7 +25,6 @@ public class NameActivity extends Activity implements NameContract.View{
     setContentView(R.layout.activity_name);
     presenter();
   }
-
   private void presenter() {
     presenter = new NamePresenter(this);
   }
