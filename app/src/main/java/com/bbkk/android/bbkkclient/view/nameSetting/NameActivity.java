@@ -17,6 +17,7 @@ public class NameActivity extends Activity implements NameContract.View{
   private TextView tvRandomname;
   private ImageButton btnChangeName;
   private ImageButton btnStart;
+  NameContract.Presenter presenter;
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class NameActivity extends Activity implements NameContract.View{
     presenter();
   }
   private void presenter() {
-    NamePresenter presenter = new NamePresenter(this);
+    presenter = new NamePresenter(this);
   }
 
   public void initView() {
