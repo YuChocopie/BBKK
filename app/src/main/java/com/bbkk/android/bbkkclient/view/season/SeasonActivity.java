@@ -14,34 +14,37 @@ import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.SeasonPresenter;
 import com.bbkk.android.bbkkclient.view.main.MainActivity;
 
-public class SeasonActivity extends AppCompatActivity implements Season.View {
-
-  private static final String SEASON_TITLE = "Season";
-  int MAX_PAGE=4;
-  Season.Presenter presenter;
-
-
+public class SeasonActivity extends AppCompatActivity implements SeasonContract.View {
+  private static final String SEASON_TITLE = "SeasonContract";
+  private int MAX_PAGE=4;
+  private ViewPager vpSeason;
+  private ImageButton ibtnNext;
+  private TextView tvSeasonActivityName;
+  private SeasonContract.Presenter presenter;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_season);
-    presenter = new SeasonPresenter(this);
-    init();
+    presenter();
   }
 
-  private void init() {
-    ViewPager viewPager = findViewById(R.id.season_viewpager);
-    ImageButton nextPageButton = findViewById(R.id.btn_start_next);
-    TextView activityName = findViewById(R.id.textView_start_message);
+  private void presenter() {
+    presenter = new SeasonPresenter(this);
+  }
 
-    nextPageButton.setOnClickListener(view -> {
+  @Override
+  public void initView() {
+    vpSeason = findViewById(R.id.season_viewpager);
+    ibtnNext = findViewById(R.id.btn_start_next);
+    tvSeasonActivityName = findViewById(R.id.textView_start_message);
+
+    ibtnNext.setOnClickListener(view -> {
       Intent intent = new Intent(getApplicationContext(),MainActivity.class);
       startActivity(intent);
     });
 
-    viewPager.setAdapter(new adapter(getSupportFragmentManager()));
-
-    activityName.setText(SEASON_TITLE);
+    vpSeason.setAdapter(new adapter(getSupportFragmentManager()));
+    tvSeasonActivityName.setText(SEASON_TITLE);
   }
 
   private class adapter extends FragmentPagerAdapter {
