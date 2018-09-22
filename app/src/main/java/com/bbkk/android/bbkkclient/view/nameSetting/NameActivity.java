@@ -29,13 +29,13 @@ public class NameActivity extends Activity implements NameContract.View{
   }
 
   public void initView() {
-    tvRandomname = findViewById(R.id.editText_random_name);
-    btnChangeName = findViewById(R.id.btn_name_change);
-    btnStart = findViewById(R.id.btn_name_start);
-    btnStart.setOnClickListener(view -> {
-      Intent intent = new Intent(getApplicationContext(),TendencyActivity.class);
-      startActivity(intent);
-    });
+//    tvRandomname = findViewById(R.id.editText_random_name);
+//    btnChangeName = findViewById(R.id.btn_name_change);
+//    btnStart = findViewById(R.id.btn_name_start);
+//    btnStart.setOnClickListener(view -> {
+//      Intent intent = new Intent(getApplicationContext(),TendencyActivity.class);
+//      startActivity(intent);
+//    });
   }
 
   @Override

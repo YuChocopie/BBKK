@@ -12,7 +12,7 @@ public class NamePresenter implements NameContract.Presenter {
     this.nameView = nameView;
     this.nameModel = new NameModel();
     nameView.initView();
-    startPresenter();
+//    startPresenter();
   }
 
   private void startPresenter() {
