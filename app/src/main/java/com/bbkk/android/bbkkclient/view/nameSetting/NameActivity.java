@@ -1,45 +1,100 @@
 package com.bbkk.android.bbkkclient.view.nameSetting;
 
+import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.NamePresenter;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyActivity;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NameActivity extends Activity implements NameContract.View{
 
-  private TextView tvRandomname;
-  private ImageButton btnChangeName;
-  private ImageButton btnStart;
+  @BindView(R.id.tv_name_result)
+  public TextView tvNameResult;
+
+  @BindView(R.id.iv_change_button)
+  public ImageView ivChangeName;
+
+  @BindView(R.id.btn_name_submit)
+  public Button btnNameSubmit;
+
   NameContract.Presenter presenter;
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_name);
-    presenter();
-  }
-  private void presenter() {
     presenter = new NamePresenter(this);
   }
 
+  @Override
   public void initView() {
-    tvRandomname = findViewById(R.id.editText_random_name);
-    btnChangeName = findViewById(R.id.btn_name_change);
-    btnStart = findViewById(R.id.btn_name_start);
-    btnStart.setOnClickListener(view -> {
-      Intent intent = new Intent(getApplicationContext(),TendencyActivity.class);
-      startActivity(intent);
-    });
+    setContentView(R.layout.activity_name);
+    ButterKnife.bind(this);
+    this.renderView();
   }
 
   @Override
-  public void showRandomName(String name) {
-    tvRandomname.setText(name);
+  public void startTendencyActivity() {
+    startActivity(new Intent(this, TendencyActivity.class));
+    finish();
+  }
+
+  @Override
+  public void renderChangeName(String currentName) {
+    YoYo.with(Techniques.FadeOut)
+      .duration(250)
+      .withListener(new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+        }
+        @Override
+        public void onAnimationEnd(Animator animation) {
+          tvNameResult.setText(currentName);
+          showName();
+        }
+        @Override
+        public void onAnimationCancel(Animator animation) {
+        }
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+        }
+      })
+    .playOn(tvNameResult);
+      
+  }
+
+  private void showName() {
+    YoYo.with(Techniques.FadeIn)
+      .duration(1300)
+      .playOn(tvNameResult);
+  }
+
+  private void renderView() {
+    this.changeNameListener();
+    this.submitButtonListener();
+  }
+
+  private void changeNameListener() {
+    ivChangeName.setOnClickListener((__) -> {
+      presenter.changeNameAction();
+    });
+  }
+
+  private void submitButtonListener() {
+    btnNameSubmit.setOnClickListener((__) -> {
+      presenter.submitAction();
+    });
   }
 }
