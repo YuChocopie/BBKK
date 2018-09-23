@@ -20,5 +20,10 @@ public class MainPresenter implements MainContract.Presenter {
     this.view = mainView;
     this.mainModel = new MainModel();
     view.initView();
+    this.requestContentList();
+  }
+
+  private void requestContentList() {
+//    TODO: 서버에 요청한다.
   }
 }
