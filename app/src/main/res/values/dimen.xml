@@ -14,12 +14,15 @@
   <dimen name="size43">43dp</dimen>
   <dimen name="size45">45dp</dimen>
   <dimen name="size60">60dp</dimen>
+  <dimen name="size64">64dp</dimen>
   <dimen name="size92">92dp</dimen>
   <dimen name="size180">180dp</dimen>
   <dimen name="size185">185dp</dimen>
+  <dimen name="size190">190dp</dimen>
   <dimen name="size200">200dp</dimen>
   <dimen name="size244">244dp</dimen>
   <dimen name="size245">245dp</dimen>
+  <dimen name="size270">270dp</dimen>
   <dimen name="text_size13">13sp</dimen>
   <dimen name="text_size17">17sp</dimen>
   <dimen name="text_size19">19sp</dimen>
