@@ -2,6 +2,7 @@ package com.bbkk.android.bbkkclient.view.splash;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -17,13 +18,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SplashActivity extends AppCompatActivity implements SplashContract.View {
+  public static final String USER_DATA = "USER_DATA";
   SplashContract.Presenter presenter;
   @BindView(R.id.iv_splash_logo)
   ImageView ivSplashLogo;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    presenter = new SplashPresenter(this);
+    SharedPreferences userData = getSharedPreferences(USER_DATA, MODE_PRIVATE);
+    presenter = new SplashPresenter(this, userData);
     presenter.requestAction();
   }
 
