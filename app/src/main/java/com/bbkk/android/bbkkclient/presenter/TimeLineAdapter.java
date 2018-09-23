@@ -28,10 +28,10 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
 
   @Override
   public void onBindViewHolder(@NonNull TimeLineViewHolder holder, int position) {
-    TimeLineViewHolder timeLineViewHolder = holder;
-
-    timeLineViewHolder.timeLineName.setText(items.get(position).name);
-    timeLineViewHolder.timeLineimage.setImageResource(items.get(position).image);;
+//    TimeLineViewHolder timeLineViewHolder = holder;
+//
+//    timeLineViewHolder.timeLineName.setText(items.get(position).name);
+//    timeLineViewHolder.timeLineimage.setImageResource(items.get(position).image);
   }
 
   @Override

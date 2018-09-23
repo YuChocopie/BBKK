@@ -2,8 +2,8 @@ package com.bbkk.android.bbkkclient.model;
 
 public class Timeline {
   public String name;
-  public Integer image;
-  public Timeline(Integer image, String name) {
+  public String image;
+  public Timeline(String image, String name) {
     this.image = image;
     this.name = name;
   }
@@ -16,11 +16,11 @@ public class Timeline {
     this.name = name;
   }
 
-  public Integer getImage() {
+  public String getImage() {
     return image;
   }
 
-  public void setImage(Integer image) {
+  public void setImage(String image) {
     this.image = image;
   }
 }

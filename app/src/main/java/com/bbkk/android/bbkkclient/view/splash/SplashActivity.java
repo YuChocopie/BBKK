@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.SplashPresenter;
+import com.bbkk.android.bbkkclient.view.main.MainActivity;
 import com.bbkk.android.bbkkclient.view.nameSetting.NameActivity;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyActivity;
 import com.daimajia.androidanimations.library.Techniques;
@@ -61,7 +62,8 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
 
   @Override
   public void startNameActivity() {
-    startActivity(new Intent(this, NameActivity.class));
+//    TODO: 다시 Name으로 변경할 것
+    startActivity(new Intent(this, MainActivity.class));
     finish();
   }
 
