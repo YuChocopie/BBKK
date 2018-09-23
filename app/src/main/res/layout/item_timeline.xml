@@ -98,7 +98,7 @@
       android:layout_height="wrap_content"
       android:text="서울 영등포구 여의동로 330"
       android:layout_marginStart="@dimen/size2"
-      android:textColor="@color/gray1"
+      android:textColor="@color/gray23"
       android:textSize="@dimen/text_size9"
       android:textStyle="bold"
       app:layout_constraintTop_toTopOf="@id/iv_timeline_local_icon"

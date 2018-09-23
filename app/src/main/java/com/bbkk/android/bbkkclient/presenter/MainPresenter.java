@@ -25,5 +25,11 @@ public class MainPresenter implements MainContract.Presenter {
 
   private void requestContentList() {
 //    TODO: 서버에 요청한다.
+    timelines.add(new Timeline("1","하이1"));
+    timelines.add(new Timeline("2","하이2"));
+    timelines.add(new Timeline("3","하이3"));
+    timelines.add(new Timeline("4","하이4"));
+    view.renderTimeLine(timelines);
+    view.renderMainCounter(timelines.size());
   }
 }
