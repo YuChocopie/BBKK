@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <dimen name="full_header">-64dp</dimen>
   <dimen name="match_parent">0dp</dimen>
   <dimen name="fab_margin">16dp</dimen>
   <dimen name="size1">1dp</dimen>
   <dimen name="size4">4dp</dimen>
   <dimen name="size8">8dp</dimen>
   <dimen name="size16">16dp</dimen>
+  <dimen name="size18">18dp</dimen>
   <dimen name="size19">19dp</dimen>
   <dimen name="size20">20dp</dimen>
   <dimen name="size23">23dp</dimen>
@@ -13,9 +15,11 @@
   <dimen name="size26">26dp</dimen>
   <dimen name="size30">30dp</dimen>
   <dimen name="size36">36dp</dimen>
+  <dimen name="size40">40dp</dimen>
   <dimen name="size43">43dp</dimen>
   <dimen name="size45">45dp</dimen>
   <dimen name="size46">46dp</dimen>
+  <dimen name="size57">57dp</dimen>
   <dimen name="size60">60dp</dimen>
   <dimen name="size64">64dp</dimen>
   <dimen name="size92">92dp</dimen>

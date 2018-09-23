@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <include
+    android:id="@+id/item_global_header"
+    layout="@layout/item_global_header"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/timeline_recycler_view"
+    android:layout_width="@dimen/match_parent"
+    android:layout_height="@dimen/match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/item_global_header"/>
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/btn_start_write"
+    android:layout_width="@dimen/size57"
+    android:layout_height="@dimen/size57"
+    android:layout_margin="@dimen/fab_margin"
+    android:layout_marginBottom="@dimen/size20"
+    android:layout_marginEnd="@dimen/size18"
+    android:src="@drawable/icon_pencil"
+    android:padding="16dp"
+    android:scaleType="fitXY"
+    android:elevation="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

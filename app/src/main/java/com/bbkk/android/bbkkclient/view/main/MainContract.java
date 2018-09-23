@@ -9,6 +9,5 @@ public interface MainContract {
   }
 
   interface Presenter {
-    void callRecyclerView(RecyclerView mRecyclerView);
   }
 }
