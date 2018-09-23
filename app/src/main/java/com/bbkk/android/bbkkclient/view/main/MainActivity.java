@@ -27,21 +27,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    presenter();
+//    presenter();
   }
 
   private void presenter() {
-    mRecyclerView = findViewById(R.id.timeline_recycler_view);
-    presenter = new MainPresenter(this);
-    presenter.callRecyclerView(mRecyclerView);
+//    mRecyclerView = findViewById(R.id.timeline_recycler_view);
+//    presenter = new MainPresenter(this);
+//    presenter.callRecyclerView(mRecyclerView);
   }
 
   @Override
   public void initView() {
-    activityName = findViewById(R.id.textView_global_header);
-    fabStartWrite = findViewById(R.id.btn_start_write);
-    activityName.setText(MAIN_TITLE);
-    fabStartWrite.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-      .setAction("Action", null).show());
+//    activityName = findViewById(R.id.textView_global_header);
+//    fabStartWrite = findViewById(R.id.btn_start_write);
+//    activityName.setText(MAIN_TITLE);
+//    fabStartWrite.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//      .setAction("Action", null).show());
   }
 }
