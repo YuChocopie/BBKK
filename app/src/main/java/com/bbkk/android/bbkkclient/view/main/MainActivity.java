@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     setContentView(R.layout.activity_main);
 //    presenter();
   }
+
 
   private void presenter() {
 //    mRecyclerView = findViewById(R.id.timeline_recycler_view);
