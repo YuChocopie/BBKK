@@ -22,8 +22,9 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:name=".view.detail.DetailActivity"/>
-    <activity android:name=".view.review.ReviewActivity"/>
+    <activity android:name=".view.detail.DetailActivity" />
+    <activity android:name=".view.review.ReviewActivity" />
+    <activity android:name=".view.write.WriteActivity"></activity>
   </application>
 
 </manifest>
