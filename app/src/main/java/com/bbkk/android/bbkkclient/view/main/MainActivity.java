@@ -1,5 +1,6 @@
 package com.bbkk.android.bbkkclient.view.main;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,7 @@ import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.Timeline;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
 import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
+import com.bbkk.android.bbkkclient.view.write.WriteActivity;
 
 import java.util.ArrayList;
 
@@ -89,7 +91,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   private void startWriteActivity() {
-//    TODO: writeActivity 실행
+    btnWrite.setOnClickListener((__) -> {
+      startActivity(new Intent(this, WriteActivity.class));
+    });
   }
 
   private void drawerManager() {
