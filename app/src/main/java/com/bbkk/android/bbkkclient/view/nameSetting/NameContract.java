@@ -1,5 +1,9 @@
 package com.bbkk.android.bbkkclient.view.nameSetting;
 
+import com.bbkk.android.bbkkclient.model.NameModel;
+
+import retrofit2.Callback;
+
 public interface NameContract {
 
   interface View {
@@ -11,8 +15,8 @@ public interface NameContract {
   }
 
   interface Presenter {
+    void NameRetrofit();
     void submitAction();
-
     void changeNameAction();
   }
 }

@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +18,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NameActivity extends Activity implements NameContract.View{
+public class NameActivity extends Activity implements NameContract.View {
 
   @BindView(R.id.tv_name_result)
   public TextView tvNameResult;
@@ -32,13 +30,14 @@ public class NameActivity extends Activity implements NameContract.View{
   public Button btnNameSubmit;
 
   NameContract.Presenter presenter;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     presenter = new NamePresenter(this);
   }
 
-  @Override
+
   public void initView() {
     setContentView(R.layout.activity_name);
     ButterKnife.bind(this);
@@ -72,7 +71,6 @@ public class NameActivity extends Activity implements NameContract.View{
         }
       })
     .playOn(tvNameResult);
-      
   }
 
   private void showName() {
@@ -86,7 +84,7 @@ public class NameActivity extends Activity implements NameContract.View{
     this.submitButtonListener();
   }
 
-  private void changeNameListener() {
+  public void changeNameListener() {
     ivChangeName.setOnClickListener((__) -> {
       presenter.changeNameAction();
     });
