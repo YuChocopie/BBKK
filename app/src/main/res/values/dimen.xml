@@ -41,6 +41,7 @@
   <dimen name="text_size10">10sp</dimen>
   <dimen name="text_size13">13sp</dimen>
   <dimen name="text_size15">15sp</dimen>
+  <dimen name="text_size16">16sp</dimen>
   <dimen name="text_size17">17sp</dimen>
   <dimen name="text_size19">19sp</dimen>
   <dimen name="text_size20">20sp</dimen>

@@ -25,6 +25,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements MainContract.View{
   private MainContract.Presenter presenter;
 
+  @BindView(R.id.tv_back_button)
+  public TextView tvBackBtn;
   @BindView(R.id.tv_main_counter)
   public TextView tvMainCounter;
   @BindView(R.id.drawer_layout)
@@ -50,9 +52,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   @Override
+  public void onBackPressed() {
+    if (drawer.isDrawerOpen(GravityCompat.START)) {
+      drawer.closeDrawer(GravityCompat.START);
+    } else {
+      super.onBackPressed();
+    }
+  }
+
+  @Override
   public void initView() {
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
+    tvBackBtn.setVisibility(View.GONE);
     this.drawerManager();
     this.writeListener();
   }
