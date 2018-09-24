@@ -7,4 +7,5 @@
   <string name="name_next_btn_message">본격적으로 신나는 서울 여행을 시작해볼까요?</string>
   <string name="header_back">이전</string>
   <string name="review_button">꿀팁 보러가기</string>
+  <string name="review_best_logo">베스트 댓글</string>
 </resources>

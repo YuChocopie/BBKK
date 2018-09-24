@@ -23,6 +23,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".view.detail.DetailActivity"/>
+    <activity android:name=".view.review.ReviewActivity"/>
   </application>
 
 </manifest>
