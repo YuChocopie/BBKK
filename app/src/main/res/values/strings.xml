@@ -5,4 +5,6 @@
   <string name="name_name_endpoint">님</string>
   <string name="name_start_button">서울 방방콕콕 시작하기</string>
   <string name="name_next_btn_message">본격적으로 신나는 서울 여행을 시작해볼까요?</string>
+  <string name="header_back">이전</string>
+  <string name="review_button">꿀팁 보러가기</string>
 </resources>

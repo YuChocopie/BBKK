@@ -1,7 +1,9 @@
 package com.bbkk.android.bbkkclient.presenter;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.MainModel;
