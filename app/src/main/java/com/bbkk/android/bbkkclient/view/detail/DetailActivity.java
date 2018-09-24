@@ -1,5 +1,6 @@
 package com.bbkk.android.bbkkclient.view.detail;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.DetailPresenter;
+import com.bbkk.android.bbkkclient.view.review.ReviewActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,7 +65,7 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
 
   private void reviewBtnListener() {
     clReviewBtn.setOnClickListener((__) -> {
-//      TODO: Review 화면 출력하기.
+      startActivity(new Intent(this, ReviewActivity.class));
     });
   }
 
