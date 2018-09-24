@@ -24,7 +24,7 @@
     </activity>
     <activity android:name=".view.detail.DetailActivity" />
     <activity android:name=".view.review.ReviewActivity" />
-    <activity android:name=".view.write.WriteActivity"></activity>
+    <activity android:name=".view.write.WriteActivity"/>
   </application>
 
 </manifest>
