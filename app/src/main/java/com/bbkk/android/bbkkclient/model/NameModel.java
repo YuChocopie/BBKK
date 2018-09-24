@@ -2,13 +2,24 @@ package com.bbkk.android.bbkkclient.model;
 
 public class NameModel {
 
-  String randomname;
+  public Integer code;
+  public String msg;
+  public Result result;
 
-  public void setUsermname(String randomname) {
-    this.randomname = randomname;
+  public class Result {
+    public String nickname;
   }
 
-  public String getRandomname() {
-    return randomname;
+  public Result getResult() {
+    return result;
+  }
+
+  public void setResult(Result result) {
+    this.result = result;
+  }
+
+  @Override
+  public String toString() {
+    return result +"ID" ;
   }
 }

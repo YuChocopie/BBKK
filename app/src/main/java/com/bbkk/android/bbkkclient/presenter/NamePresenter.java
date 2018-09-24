@@ -1,10 +1,21 @@
 package com.bbkk.android.bbkkclient.presenter;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.bbkk.android.bbkkclient.api.BbkkApiDefinition;
 import com.bbkk.android.bbkkclient.view.nameSetting.NameContract;
 import com.bbkk.android.bbkkclient.model.NameModel;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NamePresenter implements NameContract.Presenter {
 
@@ -15,7 +26,9 @@ public class NamePresenter implements NameContract.Presenter {
     this.view = nameView;
     this.model = new NameModel();
     view.initView();
+
   }
+
 
   @Override
   public void submitAction() {
@@ -27,22 +40,23 @@ public class NamePresenter implements NameContract.Presenter {
 
   @Override
   public void changeNameAction() {
-//    TODO: 서버에 닉네임 요청하기
-    String currentName = this.renderRandomName();
-    view.renderChangeName(currentName);
+//  TODO: 서버에 닉네임 요청하기_o
+    NameRetrofit();
   }
 
-  private String renderRandomName() {
-    String[] names = {
-      "코딩하는 오징어",
-      "게임하는 재르시",
-      "홍성사는 다미니",
-      "마라토너 고으니",
-      "커피타는 유정쓰",
-      "싸라있네 현태쓰"
-    };
-    Random random = new Random();
-    int randomNum = random.nextInt(names.length);
-    return names[randomNum];
+  @Override
+  public void NameRetrofit() {
+    BbkkApiDefinition bbkkApiDefinition = BbkkApiDefinition.retrofit.create(BbkkApiDefinition.class);
+    Call<NameModel> call = bbkkApiDefinition.getRandomName();
+    call.enqueue(new Callback<NameModel>() {
+      @Override
+      public void onResponse(Call<NameModel> call, Response<NameModel> response) {
+        view.renderChangeName((response.body().result.nickname));
+      }
+      @Override
+      public void onFailure(Call<NameModel>call, Throwable t) {
+        Log.e("onFailure","Call NickName Fail");
+      }
+    });
   }
 }
