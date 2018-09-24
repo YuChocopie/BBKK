@@ -1,5 +1,6 @@
 package com.bbkk.android.bbkkclient.view.detail;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity implements DetailContract.View {
   private DetailContract.Presenter presenter;
+  private Boolean hasLike = false;
 
   @BindView(R.id.tv_back_button)
   public TextView tvBackBtn;
@@ -28,6 +30,10 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
   public NavigationView nvHeaderMain;
   private View headerView;
   private ImageView ivCloseMenu;
+  @BindView(R.id.iv_like_button)
+  public ImageView ivLikeBtn;
+  @BindView(R.id.cl_review_button)
+  public ConstraintLayout clReviewBtn;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +57,36 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
     this.drawerManager();
+    this.detailManager();
+    this.reviewBtnListener();
+  }
 
+  private void reviewBtnListener() {
+    clReviewBtn.setOnClickListener((__) -> {
+//      TODO: Review 화면 출력하기.
+    });
+  }
+
+  private void detailManager() {
+    this.renderLike(hasLike);
+    this.likeListener();
+  }
+
+  private void renderLike(Boolean hasLike) {
+    Boolean currentHasLike = hasLike;
+    if (currentHasLike) {
+      ivLikeBtn.setBackgroundResource(R.color.red1);
+    } else {
+      ivLikeBtn.setBackgroundResource(R.color.gray1);
+    }
+    this.hasLike = !currentHasLike;
+//    TODO: hasLike 값을 서버에 전송한다.
+  }
+
+  private void likeListener() {
+    ivLikeBtn.setOnClickListener((__) -> {
+      renderLike(hasLike);
+    });
   }
 
   private void drawerManager() {
