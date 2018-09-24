@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.Timeline;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
-import com.bbkk.android.bbkkclient.presenter.TimeLineAdapter;
+import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
 
 import java.util.ArrayList;
 

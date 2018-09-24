@@ -44,6 +44,7 @@
     app:layout_constraintBottom_toBottomOf="@id/tv_review_name"
     app:layout_constraintStart_toEndOf="@id/tv_review_best_logo">
     <TextView
+      android:id="@+id/tv_like_count"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:gravity="end"
@@ -64,7 +65,7 @@
 영수증 가져가면 아메리카노 1+1 해요 친구랑 라멘 먹고 치케 사서
 한강가면 꿀 다들 해보세요"
     android:layout_marginTop="@dimen/size12"
-    android:marginEnd="@dimen/size30"
+    android:layout_marginEnd="@dimen/size30"
     android:textSize="@dimen/text_size11"
     android:textColor="@color/black77"
     android:ellipsize="none"

@@ -5,12 +5,18 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
+import com.bbkk.android.bbkkclient.adapter.ReviewAdapter;
+import com.bbkk.android.bbkkclient.model.ReviewModel;
 import com.bbkk.android.bbkkclient.presenter.ReviewPresenter;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +34,9 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   public NavigationView nvHeaderMain;
   private View headerView;
   private ImageView ivCloseMenu;
+  @BindView(R.id.rv_review)
+  public RecyclerView rvReview;
+  private RecyclerView.Adapter reviewAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,14 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
     this.drawerManager();
+  }
+
+  @Override
+  public void renderReview(ArrayList<ReviewModel> reviews) {
+    ArrayList<ReviewModel> currentReviews = reviews;
+    rvReview.setLayoutManager(new LinearLayoutManager(this));
+    reviewAdapter = new ReviewAdapter(currentReviews);
+    rvReview.setAdapter(reviewAdapter);
   }
 
   private void drawerManager() {
