@@ -91,9 +91,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   private void startWriteActivity() {
-    btnWrite.setOnClickListener((__) -> {
       startActivity(new Intent(this, WriteActivity.class));
-    });
   }
 
   private void drawerManager() {

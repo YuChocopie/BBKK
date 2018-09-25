@@ -63,7 +63,7 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
   @Override
   public void startNameActivity() {
 //    TODO: 다시 Name으로 변경할 것
-    startActivity(new Intent(this, MainActivity.class));
+    startActivity(new Intent(this, NameActivity.class));
     finish();
   }
 
