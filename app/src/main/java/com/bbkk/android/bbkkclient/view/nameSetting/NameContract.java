@@ -10,12 +10,10 @@ public interface NameContract {
     void initView();
 
     void startTendencyActivity();
-
     void renderChangeName(String currentName);
   }
 
   interface Presenter {
-    void NameRetrofit();
     void submitAction();
     void changeNameAction();
   }

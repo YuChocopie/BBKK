@@ -4,13 +4,15 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.view.splash.SplashContract;
 
 import java.util.UUID;
 
+import static com.bbkk.android.bbkkclient.presenter.NamePresenter.USER_NAME;
+
 public class SplashPresenter implements SplashContract.Presenter {
   SplashContract.View view;
-  private boolean hasNickName = false;
   private SharedPreferences userData;
   public static final String USER_UUID = "USER_UUID";
 
@@ -22,18 +24,28 @@ public class SplashPresenter implements SplashContract.Presenter {
 
   @Override
   public void activityManager() {
-    if (hasNickName) {
+    if (checkHasName()) {
       view.startTendencyActivity();
     } else {
       view.startNameActivity();
     }
   }
 
+  private Boolean checkHasName() {
+    Boolean hasName = false;
+
+    String currentName = userData.getString(USER_NAME, "");
+    if (!TextUtils.isEmpty(currentName)) {
+      hasName = true;
+    }
+
+    return hasName;
+  }
   @Override
   public void requestAction() {
     String uniqueID = this.getUUID();
     Log.e("UUID",uniqueID);
-//    TODO: 서버에 값 보내기
+    BbkkApi.initialize(uniqueID);
     view.renderView();
   }
 

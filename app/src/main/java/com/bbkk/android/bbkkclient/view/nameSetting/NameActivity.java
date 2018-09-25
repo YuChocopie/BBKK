@@ -3,6 +3,7 @@ package com.bbkk.android.bbkkclient.view.nameSetting;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import com.daimajia.androidanimations.library.YoYo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 
 public class NameActivity extends Activity implements NameContract.View {
 
@@ -34,7 +37,8 @@ public class NameActivity extends Activity implements NameContract.View {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    presenter = new NamePresenter(this);
+    SharedPreferences userData = getSharedPreferences(USER_DATA, MODE_PRIVATE);
+    presenter = new NamePresenter(this, userData);
   }
 
 
