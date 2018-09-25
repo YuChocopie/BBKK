@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.Timeline;
+import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
 import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
 import com.bbkk.android.bbkkclient.view.write.WriteActivity;
@@ -72,10 +73,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   @Override
-  public void renderTimeLine(ArrayList<Timeline> timelines) {
-    ArrayList<Timeline> currentTimeLines = timelines;
+  public void renderTimeLine(ArrayList<CardFeedsResponse.Result.PopularData> popularDataLists) {
+    ArrayList<CardFeedsResponse.Result.PopularData> currentPopularDataLists = popularDataLists;
     rvTimeLineLayout.setLayoutManager(new LinearLayoutManager(this));
-    timeLineAdapter = new TimeLineAdapter(currentTimeLines);
+    timeLineAdapter = new TimeLineAdapter(currentPopularDataLists);
     rvTimeLineLayout.setAdapter(timeLineAdapter);
   }
 
