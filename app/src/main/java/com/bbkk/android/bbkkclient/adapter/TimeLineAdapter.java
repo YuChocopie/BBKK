@@ -12,14 +12,18 @@ import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.Timeline;
+import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.view.detail.DetailActivity;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLineViewHolder> {
 
-  private ArrayList<Timeline> items;
+  private ArrayList<CardFeedsResponse.Result.PopularData> items;
   private Context context;
+  private View view;
+
   private final View.OnClickListener onClickListener = new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -30,15 +34,14 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
     }
   };
 
-  public TimeLineAdapter(ArrayList<Timeline> data) {
+  public TimeLineAdapter(ArrayList<CardFeedsResponse.Result.PopularData> data) {
     this.items = data;
-
   }
 
   @NonNull
   @Override
   public TimeLineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext())
+    view = LayoutInflater.from(parent.getContext())
       .inflate(R.layout.item_timeline, parent, false);
     view.setOnClickListener(onClickListener);
     return new TimeLineViewHolder(view);
@@ -46,10 +49,16 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
 
   @Override
   public void onBindViewHolder(@NonNull TimeLineViewHolder holder, int position) {
-//    TimeLineViewHolder timeLineViewHolder = holder;
-//
-//    timeLineViewHolder.timeLineName.setText(items.get(position).name);
-//    timeLineViewHolder.timeLineimage.setImageResource(items.get(position).image);
+    String[] feedImages = items.get(position).imageUrl.split(",");
+    CardFeedsResponse.Result.PopularData item = items.get(position);
+    Glide.with(view)
+      .load(feedImages[0])
+      .into(holder.ivImage);
+
+    holder.tvHoneyCount.setText(item.honeyCount+"");
+    holder.tvTitle.setText(item.title);
+    holder.tvSubTitle.setText(item.subtitle);
+    holder.tvLocalContent.setText(item.localContent);
   }
 
   @Override
