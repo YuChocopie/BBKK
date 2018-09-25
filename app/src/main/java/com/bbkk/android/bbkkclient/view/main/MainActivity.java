@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
-import com.bbkk.android.bbkkclient.model.Timeline;
+import com.bbkk.android.bbkkclient.model.TimelineEntry;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
 import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
 
@@ -70,11 +70,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   @Override
-  public void renderTimeLine(ArrayList<Timeline> timelines) {
-    ArrayList<Timeline> currentTimeLines = timelines;
+  public void renderTimeLine(ArrayList<TimelineEntry> timelineEntries) {
+    ArrayList<TimelineEntry> currentTimeLines = timelineEntries;
     rvTimeLineLayout.setLayoutManager(new LinearLayoutManager(this));
     timeLineAdapter = new TimeLineAdapter(currentTimeLines);
     rvTimeLineLayout.setAdapter(timeLineAdapter);
+
   }
 
   @Override

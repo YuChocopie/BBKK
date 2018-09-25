@@ -20,3 +20,4 @@ public class MainModel {
     this.image = image;
   }
 }
+
