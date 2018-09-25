@@ -10,4 +10,7 @@
   <string name="header_next">다음</string>
   <string name="review_button">꿀팁 보러가기</string>
   <string name="review_best_logo">베스트 댓글</string>
+  <string name="write_title">해당 장소를 감성적으로 표현해주세요</string>
+  <string name="write_local_name">장소의 구체적인 이름을 적어주세요</string>
+  <string name="write_local_addr">주소를 적어주면, 더 많은 사람들이 갈지도 몰라요!</string>
 </resources>

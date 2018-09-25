@@ -35,6 +35,8 @@
   <color name="white5">#fff</color>
 
   <color name="red1">#f5282f</color>
+  <color name="red2">#f98387</color>
+  <color name="red1op10">#1af5282f</color>
   <color name="titleTabColor">#fff</color>
   <color name="titleSelectedTabColor">#fff</color>
 </resources>
