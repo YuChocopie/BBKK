@@ -45,8 +45,8 @@
   </android.support.constraint.ConstraintLayout>
   <android.support.v7.widget.RecyclerView
     android:id="@+id/rv_timeline"
-    android:layout_width="@dimen/match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/match_parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toBottomOf="@id/cl_main_info_layout"/>
