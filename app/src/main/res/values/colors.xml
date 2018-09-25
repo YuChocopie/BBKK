@@ -8,9 +8,9 @@
   <color name="black5">#555</color>
   <color name="black77">#707070</color>
 
-  <color name="colorAccent">#313759</color>
-  <color name="colorPrimary">#3F51B5</color>
-  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#f5282f</color>
+  <color name="colorPrimary">#f5282f</color>
+  <color name="colorPrimaryDark">#f5282f</color>
 
   <color name="fall">#a2876d</color>
   <color name="spring">#e687c5</color>
@@ -35,4 +35,6 @@
   <color name="white5">#fff</color>
 
   <color name="red1">#f5282f</color>
+  <color name="titleTabColor">#fff</color>
+  <color name="titleSelectedTabColor">#fff</color>
 </resources>

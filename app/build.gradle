@@ -39,4 +39,5 @@ dependencies {
 
     implementation 'gun0912.ted:tedpermission:2.2.2'
     implementation 'com.erikagtierrez.multiple_media_picker:multiple-media-picker:1.0.5'
+    implementation "com.github.firdausmaulan:GlideSlider:$glide_slider_version"
 }
