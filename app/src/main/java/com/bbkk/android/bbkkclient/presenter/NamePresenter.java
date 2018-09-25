@@ -1,9 +1,12 @@
 package com.bbkk.android.bbkkclient.presenter;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.api.BbkkApiDefinition;
+import com.bbkk.android.bbkkclient.model.response.NameResponse;
 import com.bbkk.android.bbkkclient.view.nameSetting.NameContract;
 import com.bbkk.android.bbkkclient.model.NameModel;
 
@@ -18,45 +21,51 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NamePresenter implements NameContract.Presenter {
-
+  public static final String USER_NAME = "USER_NAME";
   NameContract.View view;
-  NameModel model;
+  private NameResponse nameResponse;
+  private String currentName;
+  private SharedPreferences userData;
 
-  public NamePresenter(NameContract.View nameView) {
+  public NamePresenter(NameContract.View nameView, SharedPreferences userData) {
     this.view = nameView;
-    this.model = new NameModel();
+    this.userData = userData;
     view.initView();
-
+    this.changeNameAction();
   }
 
 
   @Override
   public void submitAction() {
-//    TODO: SharedPreference에 닉네임 등록하기.
-//    TODO: 서버에 데이터 닉네임 등록하기.
-//    TODO: 서버에서 닉네임 등록 성공 시 다음 Activity 실행하기
+
+//    TODO: 서버에 데이터 닉네임 등록하기
+//    TODO: 그 다음에 setName(currentName) 실행하기
+//    TODO: 서버 등록 후 액티비티 이전하기.
+
     view.startTendencyActivity();
   }
 
   @Override
   public void changeNameAction() {
-//  TODO: 서버에 닉네임 요청하기_o
-    NameRetrofit();
+    BbkkApi.getApi().getRandomName()
+      .enqueue(new Callback<NameResponse>() {
+        @Override
+        public void onResponse(Call<NameResponse> call, Response<NameResponse> response) {
+          nameResponse = response.body();
+          currentName = nameResponse.getResult().nickname;
+          view.renderChangeName(currentName);
+        }
+
+        @Override
+        public void onFailure(Call<NameResponse> call, Throwable t) {
+
+        }
+      });
   }
 
-  @Override
-  public void NameRetrofit() {
-    BbkkApiDefinition bbkkApiDefinition = BbkkApiDefinition.retrofit.create(BbkkApiDefinition.class);
-    Call<NameModel> call = bbkkApiDefinition.getRandomName();
-    call.enqueue(new Callback<NameModel>() {
-      @Override
-      public void onResponse(Call<NameModel> call, Response<NameModel> response) {
-        view.renderChangeName((response.body().result.nickname));
-      }
-      @Override
-      public void onFailure(Call<NameModel>call, Throwable t) {
-        Log.e("onFailure","Call NickName Fail");
-      }
-    });
+  private void setName(String currentName) {
+    SharedPreferences.Editor editor = userData.edit();
+    editor.putString(USER_NAME, currentName);
+    editor.commit();
   }
 }
