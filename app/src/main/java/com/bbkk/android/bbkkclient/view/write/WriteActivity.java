@@ -2,6 +2,7 @@ package com.bbkk.android.bbkkclient.view.write;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,12 @@ import android.widget.Toast;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.WritePresenter;
+import com.bumptech.glide.request.RequestOptions;
 import com.erikagtierrez.multiple_media_picker.Gallery;
+import com.glide.slider.library.SliderLayout;
+import com.glide.slider.library.SliderTypes.BaseSliderView;
+import com.glide.slider.library.SliderTypes.TextSliderView;
+import com.glide.slider.library.Tricks.ViewPagerEx;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -20,17 +26,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WriteActivity extends AppCompatActivity implements WriteContract.View {
+public class WriteActivity extends AppCompatActivity implements WriteContract.View,
+  BaseSliderView.OnSliderClickListener,
+  ViewPagerEx.OnPageChangeListener {
   private static final String IMAGE_PICKER_TITLE = "title";
   private static final String IMAGE_PICKER_VALUE = "이미지 선택";
   private static final int OPEN_MEDIA_PICKER = 1;
   private static final String MAX_IMAGE_PICK_TITLE = "maxSelection";
   private static final int MAX_IMAGE_PICK_VALUE = 5;
+  private ArrayList<String> selectImages;
   private WriteContract.Presenter presenter;
   @BindView(R.id.tv_header_cancel)
   public TextView tvCancelBtn;
   @BindView(R.id.tv_header_next)
   public TextView tvNextBtn;
+  @BindView(R.id.sl_write_images)
+  public SliderLayout slImageSlider;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +113,41 @@ public class WriteActivity extends AppCompatActivity implements WriteContract.Vi
   }
 
   private void renderWriteImageView(ArrayList<String> selectionResult) {
-    ArrayList<String> currentImageResult = selectionResult;
-    Log.e("픽픽", String.valueOf(currentImageResult));
+    selectImages = selectionResult;
+    RequestOptions requestOptions = new RequestOptions();
+    requestOptions.centerCrop();
+
+    for(int index = 0; index < selectImages.size(); index++ ) {
+      TextSliderView sliderView = new TextSliderView(this);
+
+      sliderView.image(selectImages.get(index))
+        .setRequestOption(requestOptions)
+        .setBackgroundColor(Color.WHITE)
+        .setProgressBarVisible(true)
+        .setOnSliderClickListener(this);
+
+      slImageSlider.addSlider(sliderView);
+    }
+
+    slImageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+    slImageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+    slImageSlider.setDuration(4000);
+    slImageSlider.addOnPageChangeListener(this);
+  }
+
+  @Override
+  public void onSliderClick(BaseSliderView baseSliderView) {
+  }
+
+  @Override
+  public void onPageScrolled(int i, float v, int i1) {
+  }
+
+  @Override
+  public void onPageSelected(int i) {
+  }
+
+  @Override
+  public void onPageScrollStateChanged(int i) {
   }
 }
