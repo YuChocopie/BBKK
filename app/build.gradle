@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.bbkk.android.bbkkclient"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -38,4 +38,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    implementation 'gun0912.ted:tedpermission:2.2.2'
+    implementation 'com.erikagtierrez.multiple_media_picker:multiple-media-picker:1.0.5'
+    implementation "com.github.firdausmaulan:GlideSlider:$glide_slider_version"
 }
