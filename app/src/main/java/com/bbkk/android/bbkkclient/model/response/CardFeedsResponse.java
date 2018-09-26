@@ -13,7 +13,7 @@ public class CardFeedsResponse {
   public Result result;
 
   public class Result {
-    @SerializedName("popular_data")
+    @SerializedName("data")
     public ArrayList<PopularData> popularData;
 
     public class PopularData {

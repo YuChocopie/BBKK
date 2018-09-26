@@ -32,6 +32,7 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
   ViewPagerEx.OnPageChangeListener {
   private DetailContract.Presenter presenter;
   private Boolean hasLike = false;
+  private int recyclerViewId;
   private int feedId;
   private CardFeedsResponse.Result.PopularData data;
 
@@ -85,7 +86,8 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
 
   @Override
   public void initView() {
-    this.feedId = this.getIntent().getIntExtra("FEED_ID", 1);
+    this.recyclerViewId = this.getIntent().getIntExtra("FEED_ID", 1);
+    this.feedId = (popularDataLists.size() - recyclerViewId);
     this.data = popularDataLists.get(this.feedId);
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
