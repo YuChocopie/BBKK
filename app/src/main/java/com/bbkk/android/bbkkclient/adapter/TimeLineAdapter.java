@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLineViewHolder> {
 
   private ArrayList<CardFeedsResponse.Result.PopularData> items;
+  private RecyclerViewClickListener recyclerViewClickListener;
   private Context context;
   private View view;
 
@@ -34,8 +35,15 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
     }
   };
 
-  public TimeLineAdapter(ArrayList<CardFeedsResponse.Result.PopularData> data) {
+  public interface RecyclerViewClickListener {
+    void onClick(View view, CardFeedsResponse.Result.PopularData item);
+  }
+
+  public TimeLineAdapter(
+    ArrayList<CardFeedsResponse.Result.PopularData> data,
+    RecyclerViewClickListener recyclerViewClickListener) {
     this.items = data;
+    this.recyclerViewClickListener = recyclerViewClickListener;
   }
 
   @NonNull
@@ -44,7 +52,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
     view = LayoutInflater.from(parent.getContext())
       .inflate(R.layout.item_timeline, parent, false);
     view.setOnClickListener(onClickListener);
-    return new TimeLineViewHolder(view);
+    return new TimeLineViewHolder(this.view, this.recyclerViewClickListener);
   }
 
   @Override
@@ -59,6 +67,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
     holder.tvTitle.setText(item.title);
     holder.tvSubTitle.setText(item.subtitle);
     holder.tvLocalContent.setText(item.localContent);
+    holder.item = item;
   }
 
   @Override
@@ -66,14 +75,19 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
     return items.size();
   }
 
-  public class TimeLineViewHolder extends RecyclerView.ViewHolder {
+  public class TimeLineViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    CardFeedsResponse.Result.PopularData item;
     ImageView ivImage;
     TextView tvHoneyCount;
     TextView tvTitle;
     TextView tvSubTitle;
     TextView tvLocalContent;
+    RecyclerViewClickListener recyclerViewClickListener;
 
-    public TimeLineViewHolder (View view) {
+    public TimeLineViewHolder(
+      View view,
+      RecyclerViewClickListener recyclerViewClickListener
+    ) {
       super(view);
       context = view.getContext();
       ivImage = view.findViewById(R.id.iv_timeline_image);
@@ -81,6 +95,13 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
       tvTitle = view.findViewById(R.id.tv_timeline_title);
       tvSubTitle = view.findViewById(R.id.tv_timeline_subtitle);
       tvLocalContent = view.findViewById(R.id.tv_timeline_local_content);
+      this.recyclerViewClickListener = recyclerViewClickListener;
+      view.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+      this.recyclerViewClickListener.onClick(view, item);
     }
   }
 }
