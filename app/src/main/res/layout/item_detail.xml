@@ -59,9 +59,11 @@
       android:layout_width="@dimen/size20"
       android:layout_height="@dimen/size20"
       android:layout_marginEnd="@dimen/size8"
+      android:layout_marginTop="8dp"
       android:background="@color/gray1"
       app:layout_constraintBottom_toBottomOf="@id/tv_timeline_title"
-      app:layout_constraintEnd_toEndOf="@id/tv_timeline_subtitle" />
+      app:layout_constraintEnd_toEndOf="@id/tv_timeline_subtitle"
+      app:layout_constraintTop_toBottomOf="@+id/tv_timeline_subtitle" />
 
     <ImageView
       android:id="@+id/iv_timeline_local_icon"
@@ -85,21 +87,22 @@
       app:layout_constraintStart_toEndOf="@id/iv_timeline_local_icon"
       app:layout_constraintTop_toTopOf="@id/iv_timeline_local_icon" />
   </android.support.constraint.ConstraintLayout>
-  <ImageView
-    android:id="@+id/iv_timeline_image"
+
+  <com.glide.slider.library.SliderLayout
+    android:id="@+id/sl_timeline_images"
     android:layout_width="match_parent"
     android:layout_height="@dimen/size290"
-    android:src="@drawable/icon_splash_bg"
-    android:scaleType="centerCrop"
-    app:layout_constraintTop_toBottomOf="@+id/cl_timeline_header"
+    android:background="@color/white5"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintTop_toBottomOf="@+id/cl_timeline_header" />
   <ScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/iv_timeline_image">
+    app:layout_constraintTop_toBottomOf="@id/sl_timeline_images">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
