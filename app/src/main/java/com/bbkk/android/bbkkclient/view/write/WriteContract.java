@@ -5,6 +5,6 @@ public interface WriteContract {
     void initView();
   }
   interface Presenter {
-
+    void RegisterContentList();
   }
 }

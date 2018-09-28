@@ -60,12 +60,13 @@ public class WriteActivity extends AppCompatActivity implements WriteContract.Vi
 
   private void listenSubmit() {
     tvNextBtn.setOnClickListener((__) -> {
-
+      presenter.RegisterContentList();
     });
   }
 
   private void listenCancel() {
     tvCancelBtn.setOnClickListener((__) -> {
+
       finish();
     });
   }
