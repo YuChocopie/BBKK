@@ -13,7 +13,7 @@ public class CardFeedsResponse {
   public Result result;
 
   public class Result {
-    @SerializedName("popular_data")
+    @SerializedName("data")
     public ArrayList<PopularData> popularData;
 
     public class PopularData {
@@ -27,11 +27,11 @@ public class CardFeedsResponse {
       public String subtitle;
       @SerializedName("position")
       public String localContent;
-      @SerializedName("imageUrl")
+      @SerializedName("image_url")
       public String imageUrl;
       @SerializedName("traveler")
       public Traveler traveler;
-      @SerializedName("likeCnt")
+      @SerializedName("like_cnt")
       public int honeyCount;
       @SerializedName("create_at")
       public String createDate;
