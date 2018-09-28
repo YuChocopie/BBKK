@@ -9,6 +9,7 @@
     android:id="@+id/tv_review_name"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:lineSpacingExtra="9sp"
     android:text="코딩하는 오징어"
     android:textColor="@color/black77"
     android:textStyle="bold"
@@ -17,24 +18,25 @@
     android:textSize="@dimen/text_size12"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"/>
+
   <TextView
     android:id="@+id/tv_review_best_logo"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_radius2_red"
-    android:paddingTop="@dimen/size2"
-    android:paddingBottom="@dimen/size2"
-    android:paddingStart="@dimen/size4"
-    android:paddingEnd="@dimen/size4"
     android:layout_marginStart="@dimen/size4"
+    android:background="@drawable/item_radius2_red"
+    android:paddingBottom="@dimen/size2"
+    android:paddingEnd="@dimen/size4"
+    android:paddingStart="@dimen/size4"
+    android:paddingTop="@dimen/size2"
     android:text="@string/review_best_logo"
+    android:textColor="@color/red1"
     android:textSize="@dimen/text_size8"
     android:textStyle="bold"
-    android:textColor="@color/red1"
-    android:visibility="visible"
-    app:layout_constraintTop_toTopOf="@id/tv_review_name"
+    android:visibility="gone"
     app:layout_constraintBottom_toBottomOf="@id/tv_review_name"
-    app:layout_constraintStart_toEndOf="@id/tv_review_name"/>
+    app:layout_constraintStart_toEndOf="@id/tv_review_name"
+    app:layout_constraintTop_toTopOf="@id/tv_review_name" />
   <android.support.constraint.ConstraintLayout
     android:layout_width="@dimen/size43"
     android:layout_height="@dimen/size16"
@@ -43,6 +45,14 @@
     app:layout_constraintTop_toTopOf="@id/tv_review_name"
     app:layout_constraintBottom_toBottomOf="@id/tv_review_name"
     app:layout_constraintStart_toEndOf="@id/tv_review_best_logo">
+    <ImageView
+      android:layout_width="@dimen/size12"
+      android:layout_height="@dimen/size12"
+      android:layout_marginStart="@dimen/size4"
+      android:src="@drawable/icon_honey"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"/>
     <TextView
       android:id="@+id/tv_like_count"
       android:layout_width="wrap_content"
@@ -61,6 +71,7 @@
     android:id="@+id/tv_review_content"
     android:layout_width="@dimen/match_parent"
     android:layout_height="wrap_content"
+    android:lineSpacingExtra="8sp"
     android:text="여기 치즈 케이크 진짜 맛있어요! 저만 아는줄 ㅋㅋㅋㅋㅋㅋㅋㅋ 여기 사장님이 옆 라멘집 사장님이랑 형제라 라멘 먹고
 영수증 가져가면 아메리카노 1+1 해요 친구랑 라멘 먹고 치케 사서
 한강가면 꿀 다들 해보세요"
@@ -79,7 +90,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="2018. 09. 12"
-    android:layout_marginTop="@dimen/size9"
+    android:layout_marginTop="@dimen/size4"
     android:layout_marginBottom="@dimen/size34"
     android:textSize="@dimen/text_size11"
     android:textColor="@color/gray11"
@@ -89,6 +100,25 @@
     app:layout_constraintTop_toBottomOf="@id/tv_review_content"
     app:layout_constraintStart_toStartOf="@id/tv_review_name"
     app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <TextView
+    android:id="@+id/tv_review_delete"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/size4"
+    android:ellipsize="none"
+    android:paddingEnd="@dimen/size8"
+    android:paddingStart="@dimen/size8"
+    android:scrollHorizontally="false"
+    android:singleLine="false"
+    android:text="@string/review_delete"
+    android:textColor="@color/gray11"
+    android:textSize="@dimen/text_size11"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="@+id/tv_review_date"
+    app:layout_constraintStart_toEndOf="@+id/tv_review_date"
+    app:layout_constraintTop_toTopOf="@+id/tv_review_date" />
+
   <View
     android:layout_width="@dimen/match_parent"
     android:layout_height="@dimen/size1"

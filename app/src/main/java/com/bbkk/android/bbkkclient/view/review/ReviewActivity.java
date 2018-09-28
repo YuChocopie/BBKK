@@ -26,6 +26,10 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
 
   @BindView(R.id.tv_back_button)
   public TextView tvBackBtn;
+  @BindView(R.id.tv_review_delete)
+  public TextView tvDeleteBtn;
+  @BindView(R.id.tv_review_best_logo)
+  public TextView tvBestLogo;
   @BindView(R.id.drawer_layout)
   public DrawerLayout drawer;
   @BindView(R.id.iv_menu_button)
@@ -79,6 +83,11 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   private void closeActivity() {
     tvBackBtn.setOnClickListener((__) -> {
       finish();
+    });
+  }
+  private void deleteReview() {
+    tvBackBtn.setOnClickListener((__) -> {
+      presenter.deleteReview();
     });
   }
 
