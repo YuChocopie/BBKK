@@ -18,6 +18,7 @@ import com.bbkk.android.bbkkclient.model.Timeline;
 import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
 import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
+import com.bbkk.android.bbkkclient.view.detail.DetailActivity;
 import com.bbkk.android.bbkkclient.view.write.WriteActivity;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   private RecyclerView.Adapter timeLineAdapter;
   private View headerView;
   private ImageView ivCloseMenu;
+  public static ArrayList<CardFeedsResponse.Result.PopularData> popularDataLists;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
   @Override
   public void renderTimeLine(ArrayList<CardFeedsResponse.Result.PopularData> popularDataLists) {
-    ArrayList<CardFeedsResponse.Result.PopularData> currentPopularDataLists = popularDataLists;
+    this.popularDataLists = popularDataLists;
     rvTimeLineLayout.setLayoutManager(new LinearLayoutManager(this));
-    timeLineAdapter = new TimeLineAdapter(currentPopularDataLists);
+    timeLineAdapter = new TimeLineAdapter(this.popularDataLists, this::handleClickTimelineEntry);
     rvTimeLineLayout.setAdapter(timeLineAdapter);
   }
 
@@ -110,5 +112,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     btnOpenMenu.setOnClickListener((__) -> {
       drawer.openDrawer(GravityCompat.START);
     });
+  }
+
+  private void handleClickTimelineEntry(View view, CardFeedsResponse.Result.PopularData item) {
+    Intent intent = new Intent(this, DetailActivity.class);
+    intent.putExtra("FEED_ID", item.feedId);
+    this.startActivity(intent);
   }
 }
