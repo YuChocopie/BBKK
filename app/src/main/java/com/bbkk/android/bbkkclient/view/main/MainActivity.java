@@ -1,6 +1,8 @@
 package com.bbkk.android.bbkkclient.view.main;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +22,8 @@ import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.presenter.MainPresenter;
 import com.bbkk.android.bbkkclient.adapter.TimeLineAdapter;
 import com.bbkk.android.bbkkclient.view.detail.DetailActivity;
+import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
+import com.bbkk.android.bbkkclient.view.tendency.TendencyActivity;
 import com.bbkk.android.bbkkclient.view.write.WriteActivity;
 
 import java.util.ArrayList;
@@ -26,7 +31,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View{
+public class MainActivity extends AppCompatActivity implements MainContract.View {
   private MainContract.Presenter presenter;
 
   @BindView(R.id.tv_back_button)
@@ -100,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   private void drawerManager() {
     this.openHeaderMenu();
     this.closeHeaderMenu();
+
   }
 
   private void closeHeaderMenu() {
@@ -118,5 +124,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     Intent intent = new Intent(this, DetailActivity.class);
     intent.putExtra("FEED_ID", item.feedId);
     this.startActivity(intent);
+  }
+
+  public void startTendencyActivity(View view) {
+    startActivity(new Intent(this, TendencyActivity.class));
+  }
+  public void startSeasonActivity(View view) {
+    startActivity(new Intent(this, SeasonActivity.class));
+  }
+  public void openBookmark(View view) {
+//TODO:즐겨찾기 받아오기
+  }
+  public void openHighlight(View view) {
+//TODO:하이라이트만 받아오기
+
   }
 }

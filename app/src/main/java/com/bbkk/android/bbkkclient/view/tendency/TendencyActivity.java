@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.TendencyPresenter;
+import com.bbkk.android.bbkkclient.view.main.MainActivity;
 import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -26,6 +27,8 @@ import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 public class TendencyActivity extends AppCompatActivity implements TendencyContract.View {
 
   private int MAX_PAGE=5;
+  private static int CHECK_START=0;
+  ViewPager vpTendency;
   TendencyContract.Presenter presenter;
   @BindView(R.id.vp_type_layout)
   public ViewPager vpTypeLayout;

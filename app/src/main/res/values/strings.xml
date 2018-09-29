@@ -30,4 +30,13 @@
   <string name="type_traveler">서울에 가장 유명한 곳은 어디지?\n명소 도장 깨기 쾅쾅!\n남들 가본 곳은 나도 꼭 가봐야 해!</string>
   <string name="type_explorer">어디든 움직이고 보는 불도저 타입!\n눈이 오나 비가 오나 나는 움직일 거야!\n동에 번쩍 서에 번쩍 여행은 움직이는 거야!</string>
   <string name="type_niggard">내 지갑은 소중하니까!\n한 푼도 허투루 쓰지 않겠어!\n돈을 많이 쓰지 않고서도 잘 놀 수 있다는 걸 보여줄게!</string>
+  <string name="tendency_name_food_fighter">식도락형</string>
+  <string name="tendency_name_artist">예술가형</string>
+  <string name="tendency_name_niggard">알뜰형</string>
+  <string name="tendency_name_traveler">여행가형</string>
+  <string name="tendency_name_explorer">관광객형</string>
+  <string name="header_bookmark">즐겨찾기 목록</string>
+  <string name="header_highlight">서울 하이라이트</string>
+  <string name="header_style">여행 스타일 설정</string>
+  <string name="header_season">여행 계절 선택</string>
 </resources>
