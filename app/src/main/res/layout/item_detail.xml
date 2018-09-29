@@ -27,6 +27,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/size30"
       android:layout_marginTop="@dimen/size14"
+      android:lineSpacingExtra="5sp"
       android:ellipsize="none"
       android:maxLines="2"
       android:scrollHorizontally="false"
@@ -42,28 +43,26 @@
       android:id="@+id/tv_timeline_subtitle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="@dimen/size20"
+      android:lineSpacingExtra="5sp"
       android:gravity="center"
-      android:paddingBottom="@dimen/size4"
       android:paddingEnd="@dimen/size8"
-      android:paddingStart="@dimen/size8"
+      android:paddingStart="@dimen/size10"
       android:paddingTop="@dimen/size4"
       android:text="한강 유원지"
-      android:textColor="@color/red1"
-      android:textSize="@dimen/text_size12"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/tv_timeline_title" />
+      android:textColor="@color/red3"
+      android:textSize="@dimen/text_size10"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_timeline_local_content"
+      app:layout_constraintStart_toEndOf="@+id/tv_timeline_local_content" />
 
     <ImageView
       android:id="@+id/iv_like_button"
-      android:layout_width="@dimen/size20"
-      android:layout_height="@dimen/size20"
-      android:layout_marginEnd="@dimen/size8"
-      android:layout_marginTop="8dp"
-      android:background="@color/gray1"
-      app:layout_constraintBottom_toBottomOf="@id/tv_timeline_title"
-      app:layout_constraintEnd_toEndOf="@id/tv_timeline_subtitle"
-      app:layout_constraintTop_toBottomOf="@+id/tv_timeline_subtitle" />
+      android:layout_width="@dimen/size40"
+      android:layout_height="@dimen/size40"
+      android:layout_marginEnd="@dimen/size21"
+      android:layout_marginTop="24dp"
+      android:src="@drawable/icon_star_gray"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
       android:id="@+id/iv_timeline_local_icon"
@@ -79,6 +78,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/size2"
+      android:lineSpacingExtra="4sp"
       android:text="서울 영등포구 여의동로 330"
       android:textColor="@color/gray23"
       android:textSize="@dimen/text_size9"
@@ -87,14 +87,13 @@
       app:layout_constraintStart_toEndOf="@id/iv_timeline_local_icon"
       app:layout_constraintTop_toTopOf="@id/iv_timeline_local_icon" />
   </android.support.constraint.ConstraintLayout>
-
-  <com.glide.slider.library.SliderLayout
-    android:id="@+id/sl_timeline_images"
-    android:layout_width="match_parent"
+  <ImageView
+    android:id="@+id/iv_timeline_image"
+    android:layout_width="@dimen/match_parent"
     android:layout_height="@dimen/size290"
-    android:background="@color/white5"
+    android:scaleType="centerCrop"
+    android:src="@drawable/icon_splash_bg"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/cl_timeline_header" />
   <ScrollView
@@ -119,13 +118,15 @@
         android:textSize="@dimen/text_size15"
         android:textColor="@color/black77"
         android:textStyle="bold"
-        android:layout_marginBottom="@dimen/size16"/>
+        android:lineSpacingExtra="6sp"
+        android:layout_marginBottom="@dimen/size2"/>
       <TextView
         android:id="@+id/tv_content_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="한강은 그늘이 없어서 힘들줄..벗뜨..!!그늘있고 바람  잘 드는 자리 찾았어요! 주변에 치즈케이크 파는 카페를 찾아서 테이크 아웃해서 한강 보면서 먹었는데 뻥안치고 눈물 흘림 ㅜ 진짜 엄청 엄청 맛있음! 여기 안가본 사람이랑은 겸상 안함!&gt;&lt; 여기에 오리도 살아!!꽥꽥!! 여기 꼭 가보세요! 정말 강추강추 별 다섯개도 모자라용!"
         android:textSize="@dimen/text_size12"
+        android:lineSpacingExtra="6sp"
         android:textColor="@color/black77"/>
     </LinearLayout>
   </ScrollView>
@@ -141,6 +142,7 @@
       android:id="@+id/tv_review_button_title"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:lineSpacingExtra="9sp"
       android:text="@string/review_button"
       android:textColor="@color/white5"
       android:textSize="@dimen/text_size19"
@@ -152,6 +154,7 @@
       android:id="@+id/tv_review_counter"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:lineSpacingExtra="6sp"
       android:gravity="left"
       android:text="19"
       android:layout_marginStart="@dimen/size4"

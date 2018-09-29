@@ -58,4 +58,8 @@
   <dimen name="text_size20">20sp</dimen>
   <dimen name="text_size24">24sp</dimen>
   <dimen name="text_size30">30sp</dimen>
+  <dimen name="size10">10dp</dimen>
+  <dimen name="size21">21dp</dimen>
+  <dimen name="size6">6dp</dimen>
+  <dimen name="size7">7dp</dimen>
 </resources>

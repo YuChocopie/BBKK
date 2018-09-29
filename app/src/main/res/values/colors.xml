@@ -36,6 +36,7 @@
 
   <color name="red1">#f5282f</color>
   <color name="red2">#f98387</color>
+  <color name="red3">#ff3030</color>
   <color name="red1op10">#1af5282f</color>
   <color name="titleTabColor">#f5282f</color>
   <color name="titleSelectedTabColor">#f5282f</color>
