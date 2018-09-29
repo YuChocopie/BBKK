@@ -74,4 +74,6 @@
   <dimen name="size10">10dp</dimen>
   <dimen name="size21">21dp</dimen>
   <dimen name="size6">6dp</dimen>
+  <dimen name="size3">3dp</dimen>
+  <dimen name="size112">112dp</dimen>
 </resources>
