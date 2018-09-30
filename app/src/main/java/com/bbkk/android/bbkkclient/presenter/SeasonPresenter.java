@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.bbkk.android.bbkkclient.R;
+import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.model.SeasonModel;
+import com.bbkk.android.bbkkclient.model.request.TypeRequest;
 import com.bbkk.android.bbkkclient.view.season.FallFragment;
 import com.bbkk.android.bbkkclient.view.season.SeasonContract;
 import com.bbkk.android.bbkkclient.view.season.SpringFragment;

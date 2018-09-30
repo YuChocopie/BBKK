@@ -3,13 +3,20 @@ package com.bbkk.android.bbkkclient.presenter;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 
+import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.model.TendencyModel;
+import com.bbkk.android.bbkkclient.model.request.TypeRequest;
+import com.bbkk.android.bbkkclient.model.response.TypeResponse;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyContract;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyFragment_traveler;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyFragment_foodFighter;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyFragment_explorer;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyFragment_niggard;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyFragment_artist;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.bbkk.android.bbkkclient.presenter.NamePresenter.USER_NAME;
 
@@ -65,8 +72,24 @@ public class TendencyPresenter implements TendencyContract.Presenter{
   public void requestPostType(int currentItem) {
     int currentNum = currentItem;
     String currentLabel = renderLabel(currentNum);
-    this.setType(currentLabel);
-    view.startSeasonActivity();
+    String currentName = userData.getString(USER_NAME, "");
+    BbkkApi.getApi().postTypeRegister(
+      new TypeRequest(currentName, currentLabel)
+    ).enqueue(new Callback<TypeResponse>() {
+      @Override
+      public void onResponse(Call<TypeResponse> call, Response<TypeResponse> response) {
+        TypeResponse typeResponse = response.body();
+        if (typeResponse.code == 200) {
+          setType(currentLabel);
+          view.startSeasonActivity();
+        }
+      }
+
+      @Override
+      public void onFailure(Call<TypeResponse> call, Throwable t) {
+
+      }
+    });
   }
 
   private void setType(String currentLabel) {
