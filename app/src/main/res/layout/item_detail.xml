@@ -60,6 +60,7 @@
       android:layout_height="@dimen/size40"
       android:layout_marginEnd="@dimen/size21"
       android:layout_marginTop="24dp"
+      android:visibility="gone"
       android:src="@drawable/icon_star_gray"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -155,7 +156,7 @@
       android:layout_height="wrap_content"
       android:lineSpacingExtra="6sp"
       android:gravity="left"
-      android:text="19"
+      android:text=""
       android:layout_marginStart="@dimen/size4"
       android:textColor="@color/white3"
       android:textSize="@dimen/text_size13"

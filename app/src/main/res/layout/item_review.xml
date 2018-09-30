@@ -58,12 +58,16 @@
     app:layout_constraintEnd_toEndOf="parent"/>
   <android.support.design.widget.FloatingActionButton
     android:id="@+id/fb_write_review"
-    android:layout_width="57dp"
-    android:layout_height="57dp"
-    android:layout_gravity="bottom|end"
-    android:layout_margin="20dp"
+    android:layout_width="@dimen/size57"
+    android:layout_height="@dimen/size57"
+    android:layout_margin="@dimen/fab_margin"
+    android:layout_marginBottom="@dimen/size20"
+    android:layout_marginEnd="@dimen/size18"
+    android:src="@drawable/ic_honey_btn"
+    android:scaleType="fitCenter"
+    android:elevation="8dp"
+    app:backgroundTint="@color/red1"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
-
 
 </android.support.constraint.ConstraintLayout>

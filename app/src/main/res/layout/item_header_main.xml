@@ -101,138 +101,138 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"/>
 
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/size2"
-    android:orientation="vertical">
-    <android.support.constraint.ConstraintLayout
-      android:id="@+id/cl_bookmark_btn"
-      android:onClick="openBookmark"
-      android:background="@color/white5"
-      android:layout_width="match_parent"
-      android:layout_marginBottom="@dimen/size1"
-      android:layout_height="@dimen/size60">
-      <ImageView
-        android:id="@+id/iv_bookmark"
-        android:layout_width="@dimen/size24"
-        android:layout_height="@dimen/size24"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_favorites" />
+  <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="@dimen/size2"-->
+    <!--android:orientation="vertical">-->
+    <!--<android.support.constraint.ConstraintLayout-->
+      <!--android:id="@+id/cl_bookmark_btn"-->
+      <!--android:onClick="openBookmark"-->
+      <!--android:background="@color/white5"-->
+      <!--android:layout_width="match_parent"-->
+      <!--android:layout_marginBottom="@dimen/size1"-->
+      <!--android:layout_height="@dimen/size60">-->
+      <!--<ImageView-->
+        <!--android:id="@+id/iv_bookmark"-->
+        <!--android:layout_width="@dimen/size24"-->
+        <!--android:layout_height="@dimen/size24"-->
+        <!--app:layout_constraintHorizontal_bias="0.35"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:srcCompat="@drawable/icon_favorites" />-->
 
-      <TextView
-        android:id="@+id/tv_bookmark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size13"
-        android:lineSpacingExtra="6sp"
-        android:text="@string/header_bookmark"
-        android:textColor="@color/black0"
-        android:textSize="@dimen/text_size13"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_bookmark"
-        app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-      <android.support.constraint.ConstraintLayout
-        android:id="@+id/cl_season_btn"
-        android:background="@color/white5"
-        android:onClick="startSeasonActivity"
-        android:layout_marginBottom="@dimen/size1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size60">
+      <!--<TextView-->
+        <!--android:id="@+id/tv_bookmark"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="@dimen/size13"-->
+        <!--android:lineSpacingExtra="6sp"-->
+        <!--android:text="@string/header_bookmark"-->
+        <!--android:textColor="@color/black0"-->
+        <!--android:textSize="@dimen/text_size13"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/iv_bookmark"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!--</android.support.constraint.ConstraintLayout>-->
+      <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:id="@+id/cl_season_btn"-->
+        <!--android:background="@color/white5"-->
+        <!--android:onClick="startSeasonActivity"-->
+        <!--android:layout_marginBottom="@dimen/size1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/size60">-->
 
-        <ImageView
-          android:id="@+id/iv_season"
-          android:layout_width="@dimen/size24"
-          android:layout_height="@dimen/size24"
-          app:layout_constraintHorizontal_bias="0.35"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:srcCompat="@drawable/icon_season" />
+        <!--<ImageView-->
+          <!--android:id="@+id/iv_season"-->
+          <!--android:layout_width="@dimen/size24"-->
+          <!--android:layout_height="@dimen/size24"-->
+          <!--app:layout_constraintHorizontal_bias="0.35"-->
+          <!--app:layout_constraintEnd_toEndOf="parent"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toStartOf="parent"-->
+          <!--app:layout_constraintTop_toTopOf="parent"-->
+          <!--app:srcCompat="@drawable/icon_season" />-->
 
-        <TextView
-          android:id="@+id/tv_season"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/size13"
-          android:lineSpacingExtra="6sp"
-          android:text="@string/header_season"
-          android:textColor="@color/black0"
-          android:textSize="@dimen/text_size13"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/iv_season"
-          app:layout_constraintTop_toTopOf="parent" />
-      </android.support.constraint.ConstraintLayout>
-      <android.support.constraint.ConstraintLayout
-        android:id="@+id/cl_style_btn"
-        android:onClick="startTendencyActivity"
-        android:background="@color/white5"
-        android:layout_marginBottom="@dimen/size1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size60">
+        <!--<TextView-->
+          <!--android:id="@+id/tv_season"-->
+          <!--android:layout_width="wrap_content"-->
+          <!--android:layout_height="wrap_content"-->
+          <!--android:layout_marginStart="@dimen/size13"-->
+          <!--android:lineSpacingExtra="6sp"-->
+          <!--android:text="@string/header_season"-->
+          <!--android:textColor="@color/black0"-->
+          <!--android:textSize="@dimen/text_size13"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toEndOf="@+id/iv_season"-->
+          <!--app:layout_constraintTop_toTopOf="parent" />-->
+      <!--</android.support.constraint.ConstraintLayout>-->
+      <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:id="@+id/cl_style_btn"-->
+        <!--android:onClick="startTendencyActivity"-->
+        <!--android:background="@color/white5"-->
+        <!--android:layout_marginBottom="@dimen/size1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/size60">-->
 
-        <ImageView
-          android:id="@+id/iv_style"
-          android:layout_width="@dimen/size24"
-          android:layout_height="@dimen/size24"
-          app:layout_constraintHorizontal_bias="0.35"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:srcCompat="@drawable/icon_style" />
+        <!--<ImageView-->
+          <!--android:id="@+id/iv_style"-->
+          <!--android:layout_width="@dimen/size24"-->
+          <!--android:layout_height="@dimen/size24"-->
+          <!--app:layout_constraintHorizontal_bias="0.35"-->
+          <!--app:layout_constraintEnd_toEndOf="parent"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toStartOf="parent"-->
+          <!--app:layout_constraintTop_toTopOf="parent"-->
+          <!--app:srcCompat="@drawable/icon_style" />-->
 
-        <TextView
-          android:id="@+id/tv_style"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/size13"
-          android:lineSpacingExtra="6sp"
-          android:text="@string/header_style"
-          android:textColor="@color/black0"
-          android:textSize="@dimen/text_size13"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/iv_style"
-          app:layout_constraintTop_toTopOf="parent" />
-      </android.support.constraint.ConstraintLayout>
-      <android.support.constraint.ConstraintLayout
-        android:id="@+id/cl_highlight_btn"
-        android:onClick="openHighlight"
-        android:background="@color/white5"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size60">
+        <!--<TextView-->
+          <!--android:id="@+id/tv_style"-->
+          <!--android:layout_width="wrap_content"-->
+          <!--android:layout_height="wrap_content"-->
+          <!--android:layout_marginStart="@dimen/size13"-->
+          <!--android:lineSpacingExtra="6sp"-->
+          <!--android:text="@string/header_style"-->
+          <!--android:textColor="@color/black0"-->
+          <!--android:textSize="@dimen/text_size13"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toEndOf="@+id/iv_style"-->
+          <!--app:layout_constraintTop_toTopOf="parent" />-->
+      <!--</android.support.constraint.ConstraintLayout>-->
+      <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:id="@+id/cl_highlight_btn"-->
+        <!--android:onClick="openHighlight"-->
+        <!--android:background="@color/white5"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/size60">-->
 
-        <ImageView
-          android:id="@+id/iv_highlight"
-          android:layout_width="@dimen/size24"
-          android:layout_height="@dimen/size24"
-          app:layout_constraintHorizontal_bias="0.35"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:srcCompat="@drawable/icon_highlight" />
+        <!--<ImageView-->
+          <!--android:id="@+id/iv_highlight"-->
+          <!--android:layout_width="@dimen/size24"-->
+          <!--android:layout_height="@dimen/size24"-->
+          <!--app:layout_constraintHorizontal_bias="0.35"-->
+          <!--app:layout_constraintEnd_toEndOf="parent"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toStartOf="parent"-->
+          <!--app:layout_constraintTop_toTopOf="parent"-->
+          <!--app:srcCompat="@drawable/icon_highlight" />-->
 
-        <TextView
-          android:id="@+id/tv_highlight"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/size13"
-          android:lineSpacingExtra="6sp"
-          android:text="@string/header_highlight"
-          android:textColor="@color/black0"
-          android:textSize="@dimen/text_size13"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toEndOf="@+id/iv_highlight"
-          app:layout_constraintTop_toTopOf="parent" />
-      </android.support.constraint.ConstraintLayout>
-  </LinearLayout>
+        <!--<TextView-->
+          <!--android:id="@+id/tv_highlight"-->
+          <!--android:layout_width="wrap_content"-->
+          <!--android:layout_height="wrap_content"-->
+          <!--android:layout_marginStart="@dimen/size13"-->
+          <!--android:lineSpacingExtra="6sp"-->
+          <!--android:text="@string/header_highlight"-->
+          <!--android:textColor="@color/black0"-->
+          <!--android:textSize="@dimen/text_size13"-->
+          <!--app:layout_constraintBottom_toBottomOf="parent"-->
+          <!--app:layout_constraintStart_toEndOf="@+id/iv_highlight"-->
+          <!--app:layout_constraintTop_toTopOf="parent" />-->
+      <!--</android.support.constraint.ConstraintLayout>-->
+  <!--</LinearLayout>-->
 
   
 

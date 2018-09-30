@@ -34,6 +34,7 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
   private Boolean hasLike = false;
   private int recyclerViewId;
   private int feedId;
+  private String FEED_ID = "FEED_ID";
   private CardFeedsResponse.Result.PopularData data;
 
   @BindView(R.id.tv_back_button)
@@ -104,7 +105,7 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
     tvLocalContent.setText(currentData.localContent);
     tvName.setText(currentData.traveler.nickName);
     tvContent.setText(currentData.subtitle);
-    tvReviewCounter.setText(currentData.honeyCount+"");
+//    tvReviewCounter.setText(currentData.honeyCount+"");
 
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.centerCrop();
@@ -128,7 +129,9 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
 
   private void reviewBtnListener() {
     clReviewBtn.setOnClickListener((__) -> {
-      startActivity(new Intent(this, ReviewActivity.class));
+      Intent intent = new Intent(this, ReviewActivity.class);
+      intent.putExtra(FEED_ID, feedId);
+      startActivity(intent);
     });
   }
 

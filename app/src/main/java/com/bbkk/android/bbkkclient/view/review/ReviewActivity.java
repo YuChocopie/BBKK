@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.adapter.ReviewAdapter;
 import com.bbkk.android.bbkkclient.model.ReviewModel;
+import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
 import com.bbkk.android.bbkkclient.presenter.ReviewPresenter;
 
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   @BindView(R.id.rv_review)
   public RecyclerView rvReview;
   private RecyclerView.Adapter reviewAdapter;
+  private int feedId;
+  public String FEED_ID = "FEED_ID";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,12 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
     setContentView(R.layout.activity_review);
     ButterKnife.bind(this);
     presenter = new ReviewPresenter(this);
-    fbWriteReview.setImageResource(R.drawable.icon_write_review);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    presenter.requestGetReview(feedId);
   }
 
   @Override
@@ -66,6 +74,7 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
 
   @Override
   public void initView() {
+    feedId = this.getIntent().getIntExtra("FEED_ID", 1);
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
     this.drawerManager();
@@ -73,8 +82,8 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   }
 
   @Override
-  public void renderReview(ArrayList<ReviewModel> reviews) {
-    ArrayList<ReviewModel> currentReviews = reviews;
+  public void renderReview(ArrayList<ReviewResponse.Result.Comment> reviews) {
+    ArrayList<ReviewResponse.Result.Comment> currentReviews = reviews;
     rvReview.setLayoutManager(new LinearLayoutManager(this));
     reviewAdapter = new ReviewAdapter(currentReviews);
     rvReview.setAdapter(reviewAdapter);
@@ -93,7 +102,9 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   }
   private void writeReview() {
     fbWriteReview.setOnClickListener((__) -> {
-      startActivity(new Intent(this, WriteReviewActivity.class));
+      Intent intent = new Intent(this, WriteReviewActivity.class);
+      intent.putExtra(FEED_ID, feedId);
+      startActivity(intent);
     });
   }
 
