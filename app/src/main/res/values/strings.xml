@@ -39,4 +39,5 @@
   <string name="header_highlight">서울 하이라이트</string>
   <string name="header_style">여행 스타일 설정</string>
   <string name="header_season">여행 계절 선택</string>
+  <string name="title_activity_write_review">WriteReviewActivity</string>
 </resources>

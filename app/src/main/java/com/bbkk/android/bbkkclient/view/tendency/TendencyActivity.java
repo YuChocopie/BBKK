@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -36,6 +37,8 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
   private int MAX_PAGE=5;
   private static int CHECK_START=0;
   TendencyContract.Presenter presenter;
+
+
   @BindView(R.id.vp_type_layout)
   public ViewPager vpTypeLayout;
   @BindView(R.id.tv_tendency_button)
@@ -68,10 +71,8 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
     startActivity(new Intent(this, SeasonActivity.class));
     finish();
   }
-
   @Override
   public void initView() {
-
     vpTypeLayout.setAdapter(new adapter(getSupportFragmentManager()));
     this.stateTypeLayout();
   }
