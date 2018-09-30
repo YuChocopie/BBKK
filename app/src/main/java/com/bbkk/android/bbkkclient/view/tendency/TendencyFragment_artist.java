@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,11 +22,12 @@ public class TendencyFragment_artist extends android.support.v4.app.Fragment {
   @SuppressLint("ResourceAsColor")
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    LinearLayout linearLayout=(LinearLayout)inflater.inflate(R.layout.item_tendency_viewpager,container,false);
-    LinearLayout background= linearLayout.findViewById(R.id.fragment_page);
-    TextView page_num= linearLayout.findViewById(R.id.tendency_page_num);
-    page_num.setText("five");
-    background.setBackground(new ColorDrawable(R.color.winter));
-    return linearLayout;
+    ConstraintLayout ccTypeLayout = (ConstraintLayout) inflater.inflate(R.layout.item_tendency_viewpager,container,false);
+    TextView tvTypeContent = ccTypeLayout.findViewById(R.id.tv_type_content);
+    ImageView ivTypeChar = ccTypeLayout.findViewById(R.id.iv_type_char);
+
+    tvTypeContent.setText(R.string.type_artist);
+
+    return ccTypeLayout;
   }
 }

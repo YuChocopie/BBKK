@@ -1,51 +1,144 @@
 package com.bbkk.android.bbkkclient.view.tendency;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.TendencyPresenter;
 import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 
 public class TendencyActivity extends AppCompatActivity implements TendencyContract.View {
 
-  private static final String TENDENCY_TITLE = "TENDENCY";
   private int MAX_PAGE=5;
-  ViewPager vpTendency;
   TendencyContract.Presenter presenter;
-  ImageButton ibtnNext;
-  TextView tvTendencyName;
+  @BindView(R.id.vp_type_layout)
+  public ViewPager vpTypeLayout;
+  @BindView(R.id.tv_tendency_button)
+  public TextView tvTypeBtn;
+  @BindView(R.id.tv_type_label)
+  public TextView tvTypeLabel;
+  @BindView(R.id.tv_user_name)
+  public TextView tvUserName;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_tendency);
+    ButterKnife.bind(this);
     presenter();
   }
 
   private void presenter() {
-    presenter = new TendencyPresenter(this);
+    SharedPreferences userData = getSharedPreferences(USER_DATA, MODE_PRIVATE);
+    presenter = new TendencyPresenter(this, userData);
+    tvTypeBtn.setOnClickListener((__) -> {
+//      TODO: 서버에 보내고 난 다음에 이렇게 한다.
+//      Log.e("NUM", String.valueOf(vpTypeLayout.getCurrentItem()));
+//      startSeasonActivity();
+    });
+  }
+
+  private void startSeasonActivity() {
+    startActivity(new Intent(this, SeasonActivity.class));
+    finish();
   }
 
   @Override
   public void initView() {
-    vpTendency = findViewById(R.id.season_viewpager);
-    ibtnNext = findViewById(R.id.btn_start_next);
-    tvTendencyName = findViewById(R.id.textView_start_message);
+    vpTypeLayout.setAdapter(new adapter(getSupportFragmentManager()));
+    this.stateTypeLayout();
+  }
 
-    ibtnNext.setOnClickListener(view -> {
-      Intent intent = new Intent(getApplicationContext(), SeasonActivity.class);
-      startActivity(intent);
+  private void stateTypeLayout() {
+    vpTypeLayout.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      @Override
+      public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+      }
+
+      private void renderLabel(int pos) {
+        int currentNum = pos;
+        String currentName = "";
+        switch (currentNum) {
+          case 0:
+            currentName = "식도락형";
+            break;
+          case 1:
+            currentName = "예술가형";
+            break;
+          case 2:
+            currentName = "관광객형";
+            break;
+          case 3:
+            currentName = "탐험가형";
+            break;
+          case 4:
+            currentName = "알뜰형";
+            break;
+          default:
+        }
+        renderChangeName(currentName);
+      }
+
+      @Override
+      public void onPageSelected(int position) {
+        this.renderLabel(position);
+      }
+
+      @Override
+      public void onPageScrollStateChanged(int state) {
+
+      }
     });
+  }
 
-    vpTendency.setAdapter(new adapter(getSupportFragmentManager()));
-    tvTendencyName.setText(TENDENCY_TITLE);
+  private void renderChangeName(String currentName) {
+    YoYo.with(Techniques.FadeOut)
+      .duration(200)
+      .withListener(new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+        }
+        @Override
+        public void onAnimationEnd(Animator animation) {
+          tvTypeLabel.setText(currentName);
+          showName();
+        }
+        @Override
+        public void onAnimationCancel(Animator animation) {
+        }
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+        }
+      })
+      .playOn(tvTypeLabel);
+  }
+
+  private void showName() {
+    YoYo.with(Techniques.FadeIn)
+      .duration(200)
+      .playOn(tvTypeLabel);
+  }
+
+  @Override
+  public void renderName(String currentName) {
+    tvUserName.setText(currentName);
   }
 
   private class adapter extends FragmentPagerAdapter {
@@ -61,5 +154,4 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
       return MAX_PAGE;
     }
   }
-
 }

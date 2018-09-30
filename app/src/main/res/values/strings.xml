@@ -24,4 +24,10 @@
   <string name="season_autumn_subTitle">단풍 가득한 서울의 거리를 거닐 거야</string>
   <string name="season_winter_title">나는 겨울의 서울을 보고싶어</string>
   <string name="season_winter_subTitle">춥지만 마음은 따듯한 서울을 즐길 거야</string>
+  <string name="tendency_button">타입 설정 완료</string>
+  <string name="type_food">뭐든지 먹어버려!\n관광지의 모든 음식을 맛보고 말 거야!\n내 입맛을 만족시키기는 쉽지 않을 거야</string>
+  <string name="type_artist">아름다운 서울의 경치를 내 두 눈에 담겠어!\n예쁜 사진은 내 몫이야 남는 건 사진뿐이라고!</string>
+  <string name="type_traveler">서울에 가장 유명한 곳은 어디지?\n명소 도장 깨기 쾅쾅!\n남들 가본 곳은 나도 꼭 가봐야 해!</string>
+  <string name="type_explorer">어디든 움직이고 보는 불도저 타입!\n눈이 오나 비가 오나 나는 움직일 거야!\n동에 번쩍 서에 번쩍 여행은 움직이는 거야!</string>
+  <string name="type_niggard">내 지갑은 소중하니까!\n한 푼도 허투루 쓰지 않겠어!\n돈을 많이 쓰지 않고서도 잘 놀 수 있다는 걸 보여줄게!</string>
 </resources>
