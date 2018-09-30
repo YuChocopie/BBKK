@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   public FloatingActionButton btnWrite;
   @BindView(R.id.rv_timeline)
   public RecyclerView rvTimeLineLayout;
+  @BindView(R.id.tv_main_title)
+  public TextView tvMainTitle;
   private RecyclerView.Adapter timeLineAdapter;
   private View headerView;
   private ImageView ivCloseMenu;
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     tvBackBtn.setVisibility(View.GONE);
     this.drawerManager();
     this.writeListener();
+    tvMainTitle.setText("서울의 " + userData.getString(USER_SEASON, "봄"));
   }
 
   @Override
