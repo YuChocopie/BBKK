@@ -128,7 +128,7 @@ public class SeasonActivity extends AppCompatActivity implements SeasonContract.
 
   private void submitAction() {
     tvSeasonBtn.setOnClickListener((__) -> {
-      presenter.requestGetSeason();
+      presenter.requestGetSeason(vpSeason.getCurrentItem());
     });
   }
 

@@ -1,6 +1,7 @@
 package com.bbkk.android.bbkkclient.view.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -25,11 +26,17 @@ import com.bbkk.android.bbkkclient.view.detail.DetailActivity;
 import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
 import com.bbkk.android.bbkkclient.view.tendency.TendencyActivity;
 import com.bbkk.android.bbkkclient.view.write.WriteActivity;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.bbkk.android.bbkkclient.presenter.NamePresenter.USER_NAME;
+import static com.bbkk.android.bbkkclient.presenter.SeasonPresenter.USER_SEASON;
+import static com.bbkk.android.bbkkclient.presenter.TendencyPresenter.USER_TYPE;
+import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
   private MainContract.Presenter presenter;
@@ -51,12 +58,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   private RecyclerView.Adapter timeLineAdapter;
   private View headerView;
   private ImageView ivCloseMenu;
+  private TextView tvHeaderName;
+  private TextView tvHeaderType;
+  private ImageView ivHeaderImage;
+  private ImageView ivHeaderChar;
+  private SharedPreferences userData;
   public static ArrayList<CardFeedsResponse.Result.PopularData> popularDataLists;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    this.userData = getSharedPreferences(USER_DATA, MODE_PRIVATE);
     ButterKnife.bind(this);
     this.presenter = new MainPresenter(this);
   }
@@ -74,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   public void initView() {
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
+    tvHeaderName = headerView.findViewById(R.id.tv_header_name);
+    tvHeaderType = headerView.findViewById(R.id.tv_header_tendency);
+    ivHeaderImage = headerView.findViewById(R.id.iv_header_image);
+    ivHeaderChar = headerView.findViewById(R.id.iv_header_char);
     tvBackBtn.setVisibility(View.GONE);
     this.drawerManager();
     this.writeListener();
@@ -105,7 +122,67 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   private void drawerManager() {
     this.openHeaderMenu();
     this.closeHeaderMenu();
+    this.renderName();
+    this.renderType();
+    this.renderSeason();
+  }
 
+  private void renderSeason() {
+    int currentBackgorund = R.drawable.bg_spring;
+    String currentSeason = userData.getString(USER_SEASON, "봄");
+    switch (currentSeason) {
+      case "봄":
+        currentBackgorund = R.drawable.bg_spring;
+        break;
+      case "여름":
+        currentBackgorund = R.drawable.bg_summer;
+        break;
+      case "가을":
+        currentBackgorund = R.drawable.bg_autumn;
+        break;
+      case "겨울":
+        currentBackgorund = R.drawable.bg_winter;
+        break;
+      default:
+    }
+    Glide.with(getApplicationContext())
+      .load(currentBackgorund)
+      .into(ivHeaderImage);
+  }
+
+  private void renderType() {
+    String currentType = userData.getString(USER_TYPE, "");
+    tvHeaderType.setText(currentType);
+
+    switch (currentType) {
+      case "식도락형":
+        this.renderTypeIamge(R.drawable.char_food);
+        break;
+      case "예술가형":
+        this.renderTypeIamge(R.drawable.char_artist);
+        break;
+      case "관광객형":
+        this.renderTypeIamge(R.drawable.char_travel);
+        break;
+      case "탐험가형":
+        this.renderTypeIamge(R.drawable.char_adventure);
+        break;
+      case "알뜰형":
+        this.renderTypeIamge(R.drawable.char_miser);
+        break;
+      default:
+    }
+  }
+
+  private void renderTypeIamge(int type) {
+    Glide.with(getApplicationContext())
+      .load(type)
+      .into(ivHeaderChar);
+  }
+
+  private void renderName() {
+    String currentName = userData.getString(USER_NAME, "");
+    tvHeaderName.setText(currentName);
   }
 
   private void closeHeaderMenu() {

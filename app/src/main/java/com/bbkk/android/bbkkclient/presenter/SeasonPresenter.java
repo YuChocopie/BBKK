@@ -15,6 +15,7 @@ import com.bbkk.android.bbkkclient.view.season.WinterFragment;
 import static com.bbkk.android.bbkkclient.presenter.TendencyPresenter.USER_TYPE;
 
 public class SeasonPresenter implements SeasonContract.Presenter{
+  public static final String USER_SEASON = "USER_SEASON";
   private SharedPreferences userData;
   private SeasonContract.View view;
   private SeasonModel model;
@@ -77,8 +78,35 @@ public class SeasonPresenter implements SeasonContract.Presenter{
   }
 
   @Override
-  public void requestGetSeason() {
-//    TODO: 서버에 보낸다
+  public void requestGetSeason(int pos) {
+    this.setSeason(pos);
     view.startMainActivity();
+  }
+
+  private void setSeason(int pos) {
+    int seasonNum = pos;
+    String currentSeason = "";
+
+    switch (seasonNum) {
+      case 0:
+        currentSeason = "봄";
+        break;
+      case 1:
+        currentSeason = "여름";
+        break;
+      case 2:
+        currentSeason = "가을";
+        break;
+      case 3:
+        currentSeason = "겨울";
+        break;
+
+      default:
+    }
+
+    SharedPreferences.Editor editor = userData.edit();
+    editor.putString(USER_SEASON, currentSeason);
+    editor.commit();
+
   }
 }

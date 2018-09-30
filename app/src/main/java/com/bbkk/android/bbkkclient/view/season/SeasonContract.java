@@ -10,7 +10,6 @@ public interface SeasonContract {
   }
   interface Presenter {
     Fragment seasonFragmentGetItem(int position, int max);
-
-    void requestGetSeason();
+    void requestGetSeason(int pos);
   }
 }
