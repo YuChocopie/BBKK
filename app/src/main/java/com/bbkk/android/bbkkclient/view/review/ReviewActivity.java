@@ -1,5 +1,7 @@
 package com.bbkk.android.bbkkclient.view.review;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,12 +26,14 @@ import butterknife.ButterKnife;
 public class ReviewActivity extends AppCompatActivity implements ReviewContract.View {
   private ReviewContract.Presenter presenter;
 
+  @BindView(R.id.fb_write_review)
+  public FloatingActionButton fbWriteReview;
   @BindView(R.id.tv_back_button)
   public TextView tvBackBtn;
-  @BindView(R.id.tv_review_delete)
-  public TextView tvDeleteBtn;
-  @BindView(R.id.tv_review_best_logo)
-  public TextView tvBestLogo;
+//  @BindView(R.id.tv_review_delete)
+//  public TextView tvDeleteBtn;
+//  @BindView(R.id.tv_review_best_logo)
+//  public TextView tvBestLogo;
   @BindView(R.id.drawer_layout)
   public DrawerLayout drawer;
   @BindView(R.id.iv_menu_button)
@@ -48,6 +52,7 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
     setContentView(R.layout.activity_review);
     ButterKnife.bind(this);
     presenter = new ReviewPresenter(this);
+    fbWriteReview.setImageResource(R.drawable.icon_write_review);
   }
 
   @Override
@@ -64,6 +69,7 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
     headerView = nvHeaderMain.getHeaderView(0);
     ivCloseMenu = headerView.findViewById(R.id.iv_close_button);
     this.drawerManager();
+    this.writeReview();
   }
 
   @Override
@@ -85,9 +91,9 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
       finish();
     });
   }
-  private void deleteReview() {
-    tvBackBtn.setOnClickListener((__) -> {
-      presenter.deleteReview();
+  private void writeReview() {
+    fbWriteReview.setOnClickListener((__) -> {
+      startActivity(new Intent(this, WriteReviewActivity.class));
     });
   }
 

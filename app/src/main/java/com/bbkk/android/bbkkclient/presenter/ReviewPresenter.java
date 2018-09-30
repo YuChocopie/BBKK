@@ -16,25 +16,25 @@ public class ReviewPresenter implements ReviewContract.Presenter{
     this.view = view;
     this.view.initView();
     this.requestContentList();
-    this.checkDeleteBtn(view);
-    this.checkBestReview(view);
+//    this.checkDeleteBtn(view);
+//    this.checkBestReview(view);
   }
 
-  private void checkBestReview(ReviewActivity view) {
-    // TODO: 베스트 댓글일 경우 로고 표시
-//    기본값을 GONE로 부여
-    if(true) {
-      view.tvBestLogo.setVisibility(View.VISIBLE);
-    }
-  }
+//  private void checkBestReview(ReviewActivity view) {
+//     TODO: 베스트 댓글일 경우 로고 표시
+////    기본값을 GONE로 부여
+//    if(true) {
+//      view.tvBestLogo.setVisibility(View.VISIBLE);
+//    }
+//  }
 
-  public void checkDeleteBtn(ReviewActivity view) {
+//  public void checkDeleteBtn(ReviewActivity view) {
 //    TODO: 댓글작성자 ID와 사용자의 ID를 비교한다
 //    기본값을 GONE로 부여하여 맞을시에만 보인다.
-    if(true) {
-      view.tvDeleteBtn.setVisibility(View.VISIBLE);
-    }
-  }
+//    if(true) {
+//      view.tvD/eleteBtn.setVisibility(View.VISIBLE);
+//    }
+//  }
 
   private void requestContentList() {
 //    TODO: 서버에 요청한다.
