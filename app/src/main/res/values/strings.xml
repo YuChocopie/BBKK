@@ -15,4 +15,13 @@
   <string name="write_local_addr">주소를 적어주면, 더 많은 사람들이 갈지도 몰라요!</string>
   <string name="write_content">더 많은 사람들이 달콤한 서울의 계절을 느낄 수 있도록 해당 장소를 매력적으로 소개해주세요!</string>
   <string name="review_delete">삭제</string>
+  <string name="season_button">서울 탐방 시작하기</string>
+  <string name="season_spring_title">나는 봄의 서울을 보고싶어</string>
+  <string name="season_spring_subTitle">봄꽃이 가득한 서울의 봄을 여행할거야</string>
+  <string name="season_summer_title">나는 여름의 서울을 보고싶어</string>
+  <string name="season_summer_subTitle">생기 넘치는 청량한 서울을 여행할 거야</string>
+  <string name="season_autumn_title">나는 가을의 서울을 보고싶어</string>
+  <string name="season_autumn_subTitle">단풍 가득한 서울의 거리를 거닐 거야</string>
+  <string name="season_winter_title">나는 겨울의 서울을 보고싶어</string>
+  <string name="season_winter_subTitle">춥지만 마음은 따듯한 서울을 즐길 거야</string>
 </resources>
