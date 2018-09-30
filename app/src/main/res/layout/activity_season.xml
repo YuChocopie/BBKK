@@ -66,4 +66,13 @@
     android:textSize="@dimen/text_size16"
     app:layout_constraintBottom_toTopOf="@id/tv_season_button"
     app:layout_constraintStart_toStartOf="parent"/>
+  <ImageView
+    android:id="@+id/iv_type_char"
+    android:layout_width="115dp"
+    android:layout_height="205dp"
+    android:layout_marginBottom="100dp"
+    android:src="@drawable/cha_tamhum_sample"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/tv_season_button"/>
 </android.support.constraint.ConstraintLayout>

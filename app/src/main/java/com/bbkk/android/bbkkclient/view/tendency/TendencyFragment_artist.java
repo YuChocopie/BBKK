@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
+import com.bumptech.glide.Glide;
 
 public class TendencyFragment_artist extends android.support.v4.app.Fragment {
   @Override
@@ -27,6 +27,10 @@ public class TendencyFragment_artist extends android.support.v4.app.Fragment {
     ImageView ivTypeChar = ccTypeLayout.findViewById(R.id.iv_type_char);
 
     tvTypeContent.setText(R.string.type_artist);
+    Glide.with(getActivity())
+      .load(R.drawable.char_artist)
+      .into(ivTypeChar);
+
 
     return ccTypeLayout;
   }

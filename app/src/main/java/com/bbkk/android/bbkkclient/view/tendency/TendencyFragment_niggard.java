@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
+import com.bumptech.glide.Glide;
 
 public class TendencyFragment_niggard extends android.support.v4.app.Fragment {
   @Override
@@ -27,6 +28,9 @@ public class TendencyFragment_niggard extends android.support.v4.app.Fragment {
     ImageView ivTypeChar = ccTypeLayout.findViewById(R.id.iv_type_char);
 
     tvTypeContent.setText(R.string.type_niggard);
+    Glide.with(getActivity())
+      .load(R.drawable.char_miser)
+      .into(ivTypeChar);
 
     return ccTypeLayout;
   }

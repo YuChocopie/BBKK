@@ -6,6 +6,7 @@ public interface SeasonContract {
   interface View {
     void initView();
     void startMainActivity();
+    void renderTypeIamge(int char_type);
   }
   interface Presenter {
     Fragment seasonFragmentGetItem(int position, int max);
