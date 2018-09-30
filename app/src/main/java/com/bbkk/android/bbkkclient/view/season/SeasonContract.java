@@ -5,8 +5,11 @@ import android.support.v4.app.Fragment;
 public interface SeasonContract {
   interface View {
     void initView();
+    void startMainActivity();
   }
   interface Presenter {
     Fragment seasonFragmentGetItem(int position, int max);
+
+    void requestGetSeason();
   }
 }
