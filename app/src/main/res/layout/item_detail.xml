@@ -89,11 +89,10 @@
   </android.support.constraint.ConstraintLayout>
   <com.glide.slider.library.SliderLayout
     android:id="@+id/sl_timeline_images"
-    android:layout_width="@dimen/size360"
+    android:layout_width="match_parent"
     android:layout_height="@dimen/size290"
     android:background="@color/white5"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/cl_timeline_header" />
   <ScrollView

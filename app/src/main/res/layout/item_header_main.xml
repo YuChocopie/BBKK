@@ -25,13 +25,33 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
+
   </android.support.constraint.ConstraintLayout>
-  <ImageView
-    android:id="@+id/iv_header_image"
+  <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size200"
-    android:scaleType="centerCrop"
-    android:src="@drawable/icon_splash_bg"/>
+    android:layout_height="@dimen/size200">
+    <ImageView
+      android:id="@+id/iv_header_image"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/size200"
+      android:scaleType="centerCrop"
+      android:src="@drawable/icon_splash_bg"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+      android:id="@+id/iv_header_char"
+      android:layout_width="102dp"
+      android:layout_height="178dp"
+      android:layout_marginTop="41dp"
+      android:src="@drawable/char_adventure"
+      android:scaleType="fitXY"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+  </android.support.constraint.ConstraintLayout>
+
   <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="@dimen/size92"
