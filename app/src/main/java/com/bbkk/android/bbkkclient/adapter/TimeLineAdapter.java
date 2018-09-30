@@ -65,7 +65,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.TimeLi
 
     holder.tvHoneyCount.setText(item.honeyCount+"");
     holder.tvTitle.setText(item.title);
-    holder.tvSubTitle.setText(item.subtitle);
+    holder.tvSubTitle.setText(item.category);
     holder.tvLocalContent.setText(item.localContent);
     holder.item = item;
   }
