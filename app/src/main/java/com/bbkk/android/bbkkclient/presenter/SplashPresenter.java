@@ -10,6 +10,7 @@ import com.bbkk.android.bbkkclient.view.splash.SplashContract;
 import java.util.UUID;
 
 import static com.bbkk.android.bbkkclient.presenter.NamePresenter.USER_NAME;
+import static com.bbkk.android.bbkkclient.presenter.TendencyPresenter.USER_TYPE;
 
 public class SplashPresenter implements SplashContract.Presenter {
   SplashContract.View view;
@@ -25,10 +26,24 @@ public class SplashPresenter implements SplashContract.Presenter {
   @Override
   public void activityManager() {
     if (checkHasName()) {
-      view.startTendencyActivity();
+      if (checkHasType()) {
+        view.startSeasonActivity();
+      } else {
+        view.startTendencyActivity();
+      }
     } else {
       view.startNameActivity();
     }
+  }
+
+  private boolean checkHasType() {
+    Boolean hasType = false;
+    String currentType = userData.getString(USER_TYPE, "");
+    if (!TextUtils.isEmpty(currentType)) {
+      hasType = true;
+    }
+
+    return hasType;
   }
 
   private Boolean checkHasName() {

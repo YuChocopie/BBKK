@@ -49,12 +49,13 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
     presenter = new TendencyPresenter(this, userData);
     tvTypeBtn.setOnClickListener((__) -> {
 //      TODO: 서버에 보내고 난 다음에 이렇게 한다.
-//      Log.e("NUM", String.valueOf(vpTypeLayout.getCurrentItem()));
+      presenter.requestPostType(vpTypeLayout.getCurrentItem());
 //      startSeasonActivity();
     });
   }
 
-  private void startSeasonActivity() {
+  @Override
+  public void startSeasonActivity() {
     startActivity(new Intent(this, SeasonActivity.class));
     finish();
   }

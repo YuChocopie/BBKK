@@ -6,6 +6,7 @@ public interface SplashContract {
     void renderView();
     void startTendencyActivity();
     void startNameActivity();
+    void startSeasonActivity();
   }
   interface Presenter {
     void activityManager();
