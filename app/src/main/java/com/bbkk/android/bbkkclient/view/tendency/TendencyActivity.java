@@ -63,6 +63,7 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
   @Override
   public void initView() {
     vpTypeLayout.setAdapter(new adapter(getSupportFragmentManager()));
+
     this.stateTypeLayout();
   }
 

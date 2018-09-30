@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
+import com.bumptech.glide.Glide;
 
 public class TendencyFragment_traveler extends android.support.v4.app.Fragment {
   @Override
@@ -27,6 +28,9 @@ public class TendencyFragment_traveler extends android.support.v4.app.Fragment {
     ImageView ivTypeChar = ccTypeLayout.findViewById(R.id.iv_type_char);
 
     tvTypeContent.setText(R.string.type_traveler);
+    Glide.with(getActivity())
+      .load(R.drawable.char_travel)
+      .into(ivTypeChar);
 
     return ccTypeLayout;
   }

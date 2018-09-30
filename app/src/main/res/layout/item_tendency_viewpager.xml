@@ -19,8 +19,8 @@
     app:layout_constraintTop_toTopOf="parent"/>
   <ImageView
     android:id="@+id/iv_type_char"
-    android:layout_width="96dp"
-    android:layout_height="171dp"
+    android:layout_width="115dp"
+    android:layout_height="205dp"
     android:scaleType="fitXY"
     android:layout_marginBottom="67dp"
     android:src="@drawable/cha_tamhum_sample"
