@@ -27,10 +27,10 @@ public class MainPresenter implements MainContract.Presenter {
   public MainPresenter(MainContract.View mainView) {
     this.view = mainView;
     view.initView();
-    this.requestContentList();
   }
 
-  private void requestContentList() {
+  @Override
+  public void requestContentList() {
 //    TODO: 서버에 요청한다.
     getRequestFeeds();
 

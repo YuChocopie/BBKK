@@ -75,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
   }
 
   @Override
+  protected void onResume() {
+    super.onResume();
+    presenter.requestContentList();
+  }
+
+  @Override
   public void onBackPressed() {
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START);
