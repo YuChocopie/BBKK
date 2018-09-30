@@ -9,13 +9,14 @@ import android.widget.TextView;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.model.ReviewModel;
+import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
 
 import java.util.ArrayList;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder> {
-  private ArrayList<ReviewModel> reviews;
+  private ArrayList<ReviewResponse.Result.Comment> reviews;
 
-  public ReviewAdapter(ArrayList<ReviewModel> data) {
+  public ReviewAdapter(ArrayList<ReviewResponse.Result.Comment> data) {
     this.reviews = data;
   }
 
@@ -29,7 +30,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
 
   @Override
   public void onBindViewHolder(@NonNull ReviewAdapter.ReviewViewHolder holder, int position) {
-
+    ReviewResponse.Result.Comment review = reviews.get(position);
+    holder.tvReviewName.setText(review.name);
+    holder.tvReviewContent.setText(review.content);
+    String[] date = review.date.split("T");
+    holder.tvReviewDate.setText(date[0]);
   }
 
   @Override

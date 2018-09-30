@@ -5,12 +5,14 @@ import com.bbkk.android.bbkkclient.model.request.TypeRequest;
 import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.model.response.FeedResponse;
 import com.bbkk.android.bbkkclient.model.response.NameResponse;
+import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
 import com.bbkk.android.bbkkclient.model.response.TypeResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 
 public interface BbkkApiDefinition {
@@ -30,5 +32,10 @@ public interface BbkkApiDefinition {
   Call<FeedResponse> postFeed(
     @Body
     FeedRequest feedRequest
+  );
+
+  @GET("/v1/react/review/feed/{feed_id}")
+  Call<ReviewResponse> getFeedReviews(
+    @Path("feed_id") int feedId
   );
 }

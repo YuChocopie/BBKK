@@ -2,11 +2,17 @@ package com.bbkk.android.bbkkclient.presenter;
 
 import android.view.View;
 
+import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.model.ReviewModel;
+import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
 import com.bbkk.android.bbkkclient.view.review.ReviewActivity;
 import com.bbkk.android.bbkkclient.view.review.ReviewContract;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ReviewPresenter implements ReviewContract.Presenter{
   private ReviewContract.View view;
@@ -15,7 +21,7 @@ public class ReviewPresenter implements ReviewContract.Presenter{
   public ReviewPresenter(ReviewActivity view) {
     this.view = view;
     this.view.initView();
-    this.requestContentList();
+//    this.requestContentList();
 //    this.checkDeleteBtn(view);
 //    this.checkBestReview(view);
   }
@@ -36,19 +42,36 @@ public class ReviewPresenter implements ReviewContract.Presenter{
 //    }
 //  }
 
-  private void requestContentList() {
-//    TODO: 서버에 요청한다.
-    reviews.add(new ReviewModel("하이1"));
-    reviews.add(new ReviewModel("하이2"));
-    reviews.add(new ReviewModel("하이3"));
-    reviews.add(new ReviewModel("하이4"));
-    reviews.add(new ReviewModel("하이5"));
-    reviews.add(new ReviewModel("하이6"));
-    view.renderReview(reviews);
-  }
+//  private void requestContentList() {
+////    TODO: 서버에 요청한다.
+//    reviews.add(new ReviewModel("하이1"));
+//    reviews.add(new ReviewModel("하이2"));
+//    reviews.add(new ReviewModel("하이3"));
+//    reviews.add(new ReviewModel("하이4"));
+//    reviews.add(new ReviewModel("하이5"));
+//    reviews.add(new ReviewModel("하이6"));
+//    view.renderReview(reviews);
+//  }
 
   @Override
   public void deleteReview() {
 //TODO: 본인의 해당 리뷰 삭제
+  }
+
+  @Override
+  public void requestGetReview(int feedId) {
+    BbkkApi.getApi().getFeedReviews(feedId)
+      .enqueue(new Callback<ReviewResponse>() {
+        @Override
+        public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
+          ReviewResponse reviewResponse = response.body();
+          view.renderReview(reviewResponse.result.comment);
+        }
+
+        @Override
+        public void onFailure(Call<ReviewResponse> call, Throwable t) {
+
+        }
+      });
   }
 }
