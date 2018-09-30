@@ -1,10 +1,14 @@
 package com.bbkk.android.bbkkclient.api;
 
+import com.bbkk.android.bbkkclient.model.request.TypeRequest;
 import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.model.response.NameResponse;
+import com.bbkk.android.bbkkclient.model.response.TypeResponse;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 
 public interface BbkkApiDefinition {
@@ -13,4 +17,10 @@ public interface BbkkApiDefinition {
 
   @GET("/v1/playland/feed")
   Call<CardFeedsResponse> getCardFeeds();
+
+  @POST("/v1/traveler/register")
+  Call<TypeResponse> postTypeRegister(
+    @Body
+    TypeRequest typeRequest
+  );
 }
