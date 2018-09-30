@@ -3,9 +3,11 @@ package com.bbkk.android.bbkkclient.view.tendency;
 import android.animation.Animator;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,10 @@ import com.bbkk.android.bbkkclient.view.main.MainActivity;
 import com.bbkk.android.bbkkclient.view.season.SeasonActivity;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.pm10.library.CircleIndicator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +32,9 @@ import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 
 public class TendencyActivity extends AppCompatActivity implements TendencyContract.View {
 
+  private List<Drawable> poisition = new ArrayList<>();
   private int MAX_PAGE=5;
   private static int CHECK_START=0;
-  ViewPager vpTendency;
   TendencyContract.Presenter presenter;
   @BindView(R.id.vp_type_layout)
   public ViewPager vpTypeLayout;
@@ -65,18 +71,15 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
 
   @Override
   public void initView() {
-    vpTypeLayout.setAdapter(new adapter(getSupportFragmentManager()));
 
+    vpTypeLayout.setAdapter(new adapter(getSupportFragmentManager()));
     this.stateTypeLayout();
   }
-
   private void stateTypeLayout() {
     vpTypeLayout.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
       @Override
       public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
       }
-
       private void renderLabel(int pos) {
         int currentNum = pos;
         String currentName = "";
@@ -152,6 +155,8 @@ public class TendencyActivity extends AppCompatActivity implements TendencyContr
     }
     @Override
     public Fragment getItem(int position) {
+      CircleIndicator circleIndicator = (CircleIndicator) findViewById(R.id.circle_indicator);
+      circleIndicator.setupWithViewPager(vpTypeLayout);
       return presenter.tendencyFragmentGetItem(position,MAX_PAGE);
     }
     @Override
