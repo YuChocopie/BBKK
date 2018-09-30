@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
   private static Retrofit retrofit = null;
-  private static int[] SUCCESS_CODES = {200, 201};
+  private static int[] SUCCESS_CODES = {200, 201, 204};
 
   public static Retrofit getClient(String baseUrl, String uuidCode) {
     if (retrofit == null) {
@@ -44,7 +44,7 @@ public class RetrofitClient {
 
         Response response = chain.proceed(request);
 
-        if (response.code() != 200 && response.code() != 201) {
+        if (response.code() != 200 && response.code() != 201 && response.code() != 204) {
           throw new IOException(response.toString());
         }
         return response;

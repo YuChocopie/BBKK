@@ -1,7 +1,9 @@
 package com.bbkk.android.bbkkclient.api;
 
+import com.bbkk.android.bbkkclient.model.request.FeedRequest;
 import com.bbkk.android.bbkkclient.model.request.TypeRequest;
 import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
+import com.bbkk.android.bbkkclient.model.response.FeedResponse;
 import com.bbkk.android.bbkkclient.model.response.NameResponse;
 import com.bbkk.android.bbkkclient.model.response.TypeResponse;
 
@@ -22,5 +24,11 @@ public interface BbkkApiDefinition {
   Call<TypeResponse> postTypeRegister(
     @Body
     TypeRequest typeRequest
+  );
+
+  @POST("/v1/playland/register")
+  Call<FeedResponse> postFeed(
+    @Body
+    FeedRequest feedRequest
   );
 }

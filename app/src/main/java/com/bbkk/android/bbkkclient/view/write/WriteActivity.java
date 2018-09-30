@@ -2,15 +2,24 @@ package com.bbkk.android.bbkkclient.view.write;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.presenter.WritePresenter;
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.erikagtierrez.multiple_media_picker.Gallery;
 import com.glide.slider.library.SliderLayout;
@@ -20,11 +29,22 @@ import com.glide.slider.library.Tricks.ViewPagerEx;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.http.Url;
+
+import static com.bbkk.android.bbkkclient.presenter.SeasonPresenter.USER_SEASON;
+import static com.bbkk.android.bbkkclient.view.splash.SplashActivity.USER_DATA;
 
 public class WriteActivity extends AppCompatActivity implements WriteContract.View,
   BaseSliderView.OnSliderClickListener,
@@ -42,12 +62,23 @@ public class WriteActivity extends AppCompatActivity implements WriteContract.Vi
   public TextView tvNextBtn;
   @BindView(R.id.sl_write_images)
   public SliderLayout slImageSlider;
+  @BindView(R.id.et_write_title)
+  public EditText etTitle;
+  @BindView(R.id.et_write_local_name)
+  public EditText etLocalName;
+  @BindView(R.id.et_write_local_addr)
+  public EditText etLocalAddr;
+  @BindView(R.id.et_write_content)
+  public EditText etContent;
+  private SharedPreferences userData;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_write);
     ButterKnife.bind(this);
+    this.userData = getSharedPreferences(USER_DATA, MODE_PRIVATE);
     presenter = new WritePresenter(this);
   }
 
@@ -58,10 +89,87 @@ public class WriteActivity extends AppCompatActivity implements WriteContract.Vi
     this.setPermission();
   }
 
+  @Override
+  public void finishActivity() {
+    Log.e("이미지", "빵야빵야빵야");
+    finish();
+  }
+
   private void listenSubmit() {
     tvNextBtn.setOnClickListener((__) -> {
+      boolean hasData = checkData();
+      String currentImages = convertImages(selectImages);
 
+      if (hasData) {
+        Log.e("이미지", this.selectImages.get(0));
+        presenter.requestPostFeed(
+          etTitle.getText().toString(),
+          etLocalName.getText().toString(),
+          userData.getString(USER_SEASON, "봄"),
+          etContent.getText().toString(),
+          etLocalAddr.getText().toString(),
+          currentImages
+        );
+      } else {
+        Toast.makeText(this, "빈 정보가 있습니다.", Toast.LENGTH_SHORT).show();
+      }
     });
+  }
+
+  private String convertImages(ArrayList<String> selectImages) {
+//    ArrayList<Uri> items = new ArrayList<>();
+//    for (String item: selectImages) {
+//      items.add(Uri.parse(item));
+//    }
+    String currentItems = "";
+    for(String item: selectImages) {
+      currentItems += encodeImage(item) +",";
+    }
+    currentItems = currentItems.substring(0, currentItems.length()-1);
+    return currentItems;
+  }
+
+  private String encodeImage(String path)
+  {
+    File imagefile = new File(path);
+    FileInputStream fis = null;
+    try{
+      fis = new FileInputStream(imagefile);
+    }catch(FileNotFoundException e){
+      e.printStackTrace();
+    }
+    Bitmap bm = BitmapFactory.decodeStream(fis);
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
+    byte[] b = baos.toByteArray();
+    String encImage = Base64.encodeToString(b, Base64.DEFAULT);
+    //Base64.de
+    return encImage;
+
+  }
+
+  private boolean checkData() {
+    boolean isReady = true;
+    if (
+        checkNull(etTitle.getText().toString())&&
+        checkNull(etLocalName.getText().toString())&&
+        checkNull(etLocalAddr.getText().toString())&&
+        checkNull(etContent.getText().toString())
+      ) {
+      isReady = true;
+    } else {
+      isReady = false;
+    }
+    return isReady;
+  }
+
+
+  private boolean checkNull(String data) {
+    if(TextUtils.isEmpty(data)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   private void listenCancel() {
