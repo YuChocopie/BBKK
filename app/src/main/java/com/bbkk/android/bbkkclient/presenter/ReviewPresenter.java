@@ -1,7 +1,9 @@
 package com.bbkk.android.bbkkclient.presenter;
 
+import android.util.Log;
 import android.view.View;
 
+import com.bbkk.android.bbkkclient.R;
 import com.bbkk.android.bbkkclient.api.BbkkApi;
 import com.bbkk.android.bbkkclient.model.ReviewModel;
 import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
@@ -65,7 +67,9 @@ public class ReviewPresenter implements ReviewContract.Presenter{
         @Override
         public void onResponse(Call<ReviewResponse> call, Response<ReviewResponse> response) {
           ReviewResponse reviewResponse = response.body();
-          view.renderReview(reviewResponse.result.comment);
+          ArrayList<ReviewResponse.Result.Comment> comments = reviewResponse.result.comment;
+          view.renderReview(comments);
+          Log.e("DDD", "DDD");
         }
 
         @Override
