@@ -30,18 +30,22 @@ public class TendencyPresenter implements TendencyContract.Presenter{
       return null;
     switch (position){
       case 0:
-        fragment = new TendencyFragment_traveler();
-        break;
-      case 1:
         fragment = new TendencyFragment_foodFighter();
         break;
+      case 1:
+        fragment = new TendencyFragment_artist();
+        break;
       case 2:
-        fragment = new TendencyFragment_explorer();
+        fragment = new TendencyFragment_traveler();
         break;
       case 3:
-        fragment = new TendencyFragment_niggard();
+        fragment = new TendencyFragment_explorer();
+        break;
       case 4:
-        fragment = new TendencyFragment_artist();
+        fragment = new TendencyFragment_niggard();
+        break;
+      default:
+
     }
     return fragment;
   }
