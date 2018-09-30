@@ -21,6 +21,7 @@ import com.bbkk.android.bbkkclient.view.main.MainActivity;
 import com.bumptech.glide.Glide;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.pm10.library.CircleIndicator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -154,6 +155,8 @@ public class SeasonActivity extends AppCompatActivity implements SeasonContract.
     @Override
     public Fragment getItem(int position) {
         Log.e("NUM", String.valueOf(position));
+      CircleIndicator circleIndicator = (CircleIndicator) findViewById(R.id.circle_indicator);
+      circleIndicator.setupWithViewPager(vpSeason);
       return presenter.seasonFragmentGetItem(position,MAX_PAGE);
     }
 
