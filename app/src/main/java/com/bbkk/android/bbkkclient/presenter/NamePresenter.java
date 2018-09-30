@@ -37,11 +37,7 @@ public class NamePresenter implements NameContract.Presenter {
 
   @Override
   public void submitAction() {
-
-//    TODO: 서버에 데이터 닉네임 등록하기
-//    TODO: 그 다음에 setName(currentName) 실행하기
-//    TODO: 서버 등록 후 액티비티 이전하기.
-
+    this.setName(currentName);
     view.startTendencyActivity();
   }
 
