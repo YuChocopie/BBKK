@@ -47,6 +47,7 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   public RecyclerView rvReview;
   private RecyclerView.Adapter reviewAdapter;
   private int feedId;
+  public String FEED_ID = "FEED_ID";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,6 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
     setContentView(R.layout.activity_review);
     ButterKnife.bind(this);
     presenter = new ReviewPresenter(this);
-    fbWriteReview.setImageResource(R.drawable.icon_write_review);
   }
 
   @Override
@@ -102,7 +102,9 @@ public class ReviewActivity extends AppCompatActivity implements ReviewContract.
   }
   private void writeReview() {
     fbWriteReview.setOnClickListener((__) -> {
-      startActivity(new Intent(this, WriteReviewActivity.class));
+      Intent intent = new Intent(this, WriteReviewActivity.class);
+      intent.putExtra(FEED_ID, feedId);
+      startActivity(intent);
     });
   }
 

@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">bbkkClient</string>
+  <string name="app_name">달서사</string>
   <string name="name_start_message">반가워요!</string>
   <string name="name_name_result">더위 먹은 코알라</string>
   <string name="name_name_endpoint">님</string>

@@ -1,11 +1,13 @@
 package com.bbkk.android.bbkkclient.api;
 
 import com.bbkk.android.bbkkclient.model.request.FeedRequest;
+import com.bbkk.android.bbkkclient.model.request.ReviewWriteRequest;
 import com.bbkk.android.bbkkclient.model.request.TypeRequest;
 import com.bbkk.android.bbkkclient.model.response.CardFeedsResponse;
 import com.bbkk.android.bbkkclient.model.response.FeedResponse;
 import com.bbkk.android.bbkkclient.model.response.NameResponse;
 import com.bbkk.android.bbkkclient.model.response.ReviewResponse;
+import com.bbkk.android.bbkkclient.model.response.ReviewWriteResponse;
 import com.bbkk.android.bbkkclient.model.response.TypeResponse;
 
 import retrofit2.Call;
@@ -37,5 +39,11 @@ public interface BbkkApiDefinition {
   @GET("/v1/react/review/feed/{feed_id}")
   Call<ReviewResponse> getFeedReviews(
     @Path("feed_id") int feedId
+  );
+
+  @POST("/v1/react/review/playland")
+  Call<ReviewWriteResponse> postFeedReview(
+    @Body
+    ReviewWriteRequest reviewWriteRequest
   );
 }
