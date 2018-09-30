@@ -23,6 +23,8 @@ public class CardFeedsResponse {
       public String title;
       @SerializedName("season")
       public String season;
+      @SerializedName("category")
+      public String category;
       @SerializedName("content")
       public String subtitle;
       @SerializedName("position")
@@ -31,7 +33,7 @@ public class CardFeedsResponse {
       public String imageUrl;
       @SerializedName("traveler")
       public Traveler traveler;
-      @SerializedName("like_cnt")
+      @SerializedName("review_cnt")
       public int honeyCount;
       @SerializedName("create_at")
       public String createDate;

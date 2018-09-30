@@ -15,7 +15,7 @@ public interface BbkkApiDefinition {
   @GET("/v1/generate/nickname")
   Call<NameResponse> getRandomName();
 
-  @GET("/v1/playland/feed")
+  @GET("/v1/playland/feed?size=200")
   Call<CardFeedsResponse> getCardFeeds();
 
   @POST("/v1/traveler/register")
